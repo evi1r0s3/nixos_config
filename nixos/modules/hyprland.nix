@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [ hyprland ];
+  environment.systemPackages = with pkgs; [
+    hyprland
+    xorg.xrdb
+  ];
 
   programs.hyprland = {
     enable = true;

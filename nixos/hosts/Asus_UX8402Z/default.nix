@@ -12,7 +12,10 @@
       ../../modules/tuigreet_hyprland.nix
       ../../modules/hyprland.nix
       ../../modules/v2raya.nix
+      ../../modules/tofi.nix
       ../../modules/fcitx5.nix
+      ../../modules/ranger.nix
+      ../../modules/zellij.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
