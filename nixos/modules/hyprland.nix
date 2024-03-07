@@ -10,6 +10,6 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
+    # enableNvidiaPatches = true; # unstable nixpkgs dont need this
   };
 }
