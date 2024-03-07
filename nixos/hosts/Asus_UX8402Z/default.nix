@@ -16,6 +16,7 @@
       ../../modules/fcitx5.nix
       ../../modules/ranger.nix
       ../../modules/zellij.nix
+      ../../modules/fonts.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
