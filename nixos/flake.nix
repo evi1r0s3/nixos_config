@@ -2,22 +2,43 @@
   description = "Make from A template that shows all standard flake outputs";
    
   inputs = {
-    nixpkgs.url = "github:Nixos/nixpkgs/nixos-23.11";
+    # 默认分支设置是unstable
+    nixpkgs.url = "github:Nixos/nixpkgs/unstable";
+    # 然后将stable的分支设置为一个参数，用来回退个别软件包版本为使用stable版
+    nixpkgs-stable.url = "github:Nixos/nixpkgs/nixos-23.11"
     
+    # homemanager
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # EXAMPLE_1,step_1, 
+    # 单独将软件从github安装 
     # helix.url = "github:helix-editor/helix/master";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{
+    nixpkgs,
+    nixpkgs-stable,
+    home-manager,
+    ...
+  }: {
     nixosConfigurations = {
       Nix0s = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
+        # 架构
+	system = "x86_64-linux";
+        
+	# 参数传递
+	specialArgs = {
+          pkgs-stable = import nixpkgs-stable {
+            # 架构仍然使用外部的配置
+	    system = system;
+	    config.allowUnfree = true;
+	  };
+	};
+
+        # 模块
+	modules = [
           ./hosts/Asus_UX8402Z
 	  home-manager.nixosModules.home-manager
 	  {

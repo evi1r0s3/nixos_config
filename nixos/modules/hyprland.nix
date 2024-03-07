@@ -1,7 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    hyprland hypridle hyprlock xorg.xrdb
+    hyprland
+    hypridle
+    hyprlock
+    xorg.xrdb
   ];
 
   programs.hyprland = {
