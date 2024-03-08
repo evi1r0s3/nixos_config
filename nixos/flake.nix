@@ -25,7 +25,7 @@
     ...
   }: {
     nixosConfigurations = {
-      Nix0s = nixpkgs.lib.nixosSystem rec {
+      ZenNix0s = nixpkgs.lib.nixosSystem rec {
         # 架构
 	system = "x86_64-linux";
         
