@@ -17,6 +17,7 @@
       ../../modules/ranger.nix
       ../../modules/zellij.nix
       ../../modules/fonts.nix
+      ../../modules/eww.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -137,7 +138,9 @@
   
   # Flatpak
   services.flatpak.enable = true;
-
+  
+  # Fwupd
+  services.fwupd.enable = true;
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
   
