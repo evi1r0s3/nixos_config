@@ -1,6 +1,6 @@
 # 小组件
 daemonize
-indicator
+#indicator
 clock
 screenshots
 
@@ -21,7 +21,7 @@ font=IntoneMono NFM
 timestr=I%:%M %p
 datestr=%F
 
-color=282a36
+#color=282a36
 # 内圈透明颜色
 inside-clear-color=44475A
 line-clear-color=1F202A

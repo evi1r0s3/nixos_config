@@ -19,7 +19,7 @@
       ../../modules/zellij.nix
       ../../modules/fonts.nix
       ../../modules/eww.nix
-      ../../modules/swaylock.nix
+      ../../modules/swaylock_effects.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
