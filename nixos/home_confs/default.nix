@@ -8,7 +8,6 @@
     ./tofi
     ./ranger
     ./zellij
-    ./swaylock
     ./Pictures
   ];
 
