@@ -8,6 +8,8 @@
     ./tofi
     ./ranger
     ./zellij
+    ./swaylock
+    ./Pictures
   ];
 
   home.username = "evi1_f4iry";
