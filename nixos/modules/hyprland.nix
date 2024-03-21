@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     hyprland
     hypridle
-    hyprlock
+    #hyprlock
     xorg.xrdb
   ];
 
