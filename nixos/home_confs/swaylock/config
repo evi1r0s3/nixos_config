@@ -1,0 +1,52 @@
+# 小组件
+daemonize
+indicator
+clock
+screenshots
+
+# 指示圈半径
+# indicator-radius=300
+# 指示器厚度
+# indicator-thickness=20
+# 指示器位置
+indicator-x-position=2750
+indicator-y-position=1700
+
+# theme
+# image=~/.config/swaylock/dracula-wallpaper.svg
+# image=/home/evi1_f4iry/Pictures/pwn_defend_wall10_pewpew.png
+effect-blur=11x11
+effect-compose=1100,10;/home/evi1_f4iry/Pictures/wallpaper/pwn_defend_wall10_pewpew.png
+font=IntoneMono NFM
+timestr=I%:%M %p
+datestr=%F
+
+#color=282a36
+# 内圈透明颜色
+inside-clear-color=44475A
+line-clear-color=1F202A
+ring-clear-color=bd93f9
+text-color=f8f8f2
+
+layout-bg-color=1F202A
+layout-text-color=f8f8f2
+
+inside-clear-color=6272a4
+line-clear-color=1F202A
+ring-clear-color=6272a4
+text-clear-color=1F202A
+
+inside-ver-color=bd93f9
+line-ver-color=1F202A
+ring-ver-color=bd93f9
+text-ver-color=1F202A
+
+inside-wrong-color=ff5555
+line-wrong-color=1F202A
+ring-wrong-color=ff5555
+text-wrong-color=1F202A
+
+bs-hl-color=ff5555
+key-hl-color=50fa7b
+
+text-caps-lock-color=f8f8f2
