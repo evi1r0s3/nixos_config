@@ -254,7 +254,7 @@
 (defwidget network []
   (eventbox :onhover "eww open network-window && scripts/ipaddress.sh &" ;; 因为获取ip地址需要一定资源，所以只在悬停时获取
     :onhoverlost "eww close network-window"
-    :onclick "hyprctl dispatch exec '[center]' 'alacritty -T \"nmtui\" -e nmtui' "
+    :onclick "hyprctl dispatch exec '[center]' 'kitty -T \"nmtui\" nmtui' "
     :width 50
     "${network}"
   )

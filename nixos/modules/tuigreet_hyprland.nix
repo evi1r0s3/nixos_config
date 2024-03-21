@@ -6,7 +6,7 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${tuigreet} --time --time-format '%I:%M %p | %a - %h | %F' --remember --sessions ${hyprland-session}";
+        command = "${tuigreet} --time --time-format '%I:%M %p | %a - %h | %F' -g 'Nothing is true, everything is permitted.' --remember --sessions ${hyprland-session}";
 	user = "greeter";
       };
     };

@@ -9,6 +9,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/zen_kernel.nix
       ../../modules/tuigreet_hyprland.nix
       ../../modules/hyprland.nix
       ../../modules/v2raya.nix
@@ -28,6 +29,8 @@
       device = "nodev";
       useOSProber = false;
       efiSupport = true;
+      font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/IntoneMonoNerdFont-Medium.ttf";
+      fontSize = 24;
     };
   };
 
@@ -35,6 +38,8 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.interfaces."wlp0s20f3".name = "wlan0";
+
 
   # Set your time zone.
   time.timeZone = "Asia/Hong_Kong";
