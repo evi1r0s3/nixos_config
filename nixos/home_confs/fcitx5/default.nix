@@ -1,3 +1,3 @@
 {
-  home.file.".local/share/fcitx5/themes".source = ./themes;
+  home.file.".local/share/fcitx5/themes/dracula".source = ./dracula;
 }
