@@ -37,11 +37,14 @@ get_mic_icon() {
     current="$(get_mic_volume)"
     if [ "$(get_mic_mute)" = "false" ]; then
         if [ "$current" -eq "0" ]; then
+	    brightnessctl -d platform::micmute set 1 > /dev/null
             echo "󰍭"
         elif [ "$current" -ge "0" ] && [ "$current" -le "100" ]; then
+	    brightnessctl -d platform::micmute set 0 > /dev/null
             echo "󰍬"
         fi
     else
+	brightnessctl -d platform::micmute set 1 > /dev/null
         echo "󰍭"
     fi
 }
@@ -50,6 +53,7 @@ set_mute() {
     pamixer --toggle-mute
 }
 set_mic_mute() {
+    brightnessctl -d platform::micmute set 1 > /dev/null
     pamixer --toggle-mute --default-source
 }
 # 增加音量

@@ -10,6 +10,7 @@
     ./zellij
     ./Pictures
     ./swaylock
+    ./fcitx5
   ];
 
   home.username = "evi1_f4iry";

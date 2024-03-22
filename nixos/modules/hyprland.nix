@@ -6,6 +6,7 @@
     #hyprlock
     hyprpaper
     xorg.xrdb
+    wev
   ];
 
   programs.hyprland = {
