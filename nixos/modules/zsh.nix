@@ -1,20 +1,31 @@
 { pkgs, ... }:
 {
   users.defaultUserShell = pkgs.zsh;
-  environment.systemPackages = with pkgs; [ lsd ];
+  environment.systemPackages = with pkgs; [
+    lsd
+    zsh-powerlevel10k
+    atuin
+  ];
 
   programs.zsh = {
     enable = true;
-    #enableAutosuggestions.enable = true;
-    #syntaxHighlighting.enable = true;
-    oh-my-zsh = {
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+    shellAliases = {
+      ls = "lsd";
+      ll = "lsd -l";
+      la = "lsd -a";
+      lla = "lsd -la";
+      lt = "lsd --tree";
+      tree = "lsd --tree";
+    };
+    histSize = 10000;
+    promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    ohMyZsh = {
       enable = true;
-      theme = "robbyrussell";
+      #theme = "robbyrussell";
       plugins = [
         "git"
-        "autojump"
-	"zsh-autosuggestions"
-	"zsh-syntax-higlighting"
       ];
     };
   };
