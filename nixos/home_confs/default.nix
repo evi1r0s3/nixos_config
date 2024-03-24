@@ -11,6 +11,7 @@
     ./Pictures
     ./swaylock
     ./fcitx5
+    ./zsh
   ];
 
   home.username = "evi1_f4iry";
