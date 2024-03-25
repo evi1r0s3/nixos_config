@@ -5,7 +5,6 @@
     hypridle
     hyprpaper
     hyprcursor
-    #hyprlock
     xorg.xrdb
     wev
   ];
