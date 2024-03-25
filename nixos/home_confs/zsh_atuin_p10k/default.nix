@@ -11,7 +11,7 @@
     ];
     settings = {
       style = "full";
-      inline_height = 5;
+      inline_height = 18;
       show_preview = true;
       secrets_filter = true;
     };
