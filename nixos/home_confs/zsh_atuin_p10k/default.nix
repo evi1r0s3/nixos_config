@@ -1,6 +1,8 @@
 {
   home.file.".zshrc".source = ./.zshrc;
   home.file.".p10k.zsh".source = ./.p10k.zsh;
+  home.file.".config/lsd/config.yaml".source = ./lsd/config.yaml;
+  home.file.".config/lsd/themes/.yaml/dracula.yaml".source = ./lsd/dracula.yaml;
 
   programs.atuin = {
     enable = true;
