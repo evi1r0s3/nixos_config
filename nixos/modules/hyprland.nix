@@ -1,14 +1,14 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    hyprland
-    hypridle
-    hyprpaper
-    #hyprcursor
-    xorg.xrdb
-    wev
+  environment.systemPackages = [
+    pkgs.hyprland
+    pkgs.hyprpaper
+    pkgs.xorg.xrdb
+    pkgs.wev
+    pkgs-unstable.hypridle
+    pkgs-unstable.hyprcursor
   ];
-
+  
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;

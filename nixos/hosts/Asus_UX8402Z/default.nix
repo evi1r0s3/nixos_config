@@ -113,7 +113,7 @@
     # EXAMPLE_1,STEP_3
     # inputs.helix.packages."${pkgs.system}".helix
   ];
-  environment.variables.EDITOR = "neovim";
+  environment.variables.EDITOR = "helix";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
