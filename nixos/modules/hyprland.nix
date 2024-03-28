@@ -6,6 +6,7 @@
     xorg.xrdb
     wev
     hypridle
+    hyprcursor
   ];
   
   programs.hyprland = {

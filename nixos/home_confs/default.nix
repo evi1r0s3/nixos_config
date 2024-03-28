@@ -18,12 +18,6 @@
 
   home.username = "evi1_f4iry";
   home.homeDirectory = "/home/evi1_f4iry";
-
-  xresources.properties = {
-    "Xcursor.size" = 32;
-    "Xft.dpi" = 150;
-  };
-
   home.packages = with pkgs-unstable;[
     microsoft-edge
     nmap
