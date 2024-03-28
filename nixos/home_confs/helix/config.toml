@@ -20,9 +20,6 @@ select = "underline"
 [editor.file-picker]
 hidden = false
 
-[editor.file-picker]
-hidden = false
-
 [editor.statusline]
 left = ["mode", "spinner"]
 center = ["file-name"]
