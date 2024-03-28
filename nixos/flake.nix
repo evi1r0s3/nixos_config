@@ -12,9 +12,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # 单独将软件从github安装 
-    # helix.url = "github:helix-editor/helix/master";
   };
 
   outputs = inputs@{
@@ -46,6 +43,7 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.evi1_f4iry = import ./home_confs;
+      home-manager.users.root = import ./root_confs;
 	    home-manager.extraSpecialArgs = inputs;
 	  }
         ];

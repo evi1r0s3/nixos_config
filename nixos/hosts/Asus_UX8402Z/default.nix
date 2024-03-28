@@ -21,6 +21,7 @@
       ../../modules/eww.nix
       ../../modules/swaylock_effects.nix
       ../../modules/zsh.nix
+      ../../modules/emacs.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
