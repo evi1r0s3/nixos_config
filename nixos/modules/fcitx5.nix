@@ -1,10 +1,5 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
-  #environment.systemPackages = with pkgs; [
-  #  fcitx5
-  #  fcitx5-chinese-addons
-  #];
-
   i18n.inputMethod = {
     enabled = "fcitx5";
     fcitx5.addons = with pkgs; [

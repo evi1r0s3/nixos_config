@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ zellij ];
+  environment.systemPackages = with pkgs-unstable; [ zellij ];
 }

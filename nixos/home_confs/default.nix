@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs-unstable, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
     ./swaylock
     ./fcitx5
     ./zsh_atuin_p10k
-    #./cursor
+    ./cursor
     ./helix
   ];
 
@@ -24,7 +24,7 @@
     "Xft.dpi" = 150;
   };
 
-  home.packages = with pkgs;[
+  home.packages = with pkgs-unstable;[
     microsoft-edge
     nmap
     rustscan

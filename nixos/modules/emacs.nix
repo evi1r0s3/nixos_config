@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ emacs ];
+  environment.systemPackages = with pkgs-unstable; [ emacs ];
 }

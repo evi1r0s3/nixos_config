@@ -1,12 +1,11 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs-unstable, ... }:
 {
-  environment.systemPackages = [
-    pkgs.hyprland
-    pkgs.hyprpaper
-    pkgs.xorg.xrdb
-    pkgs.wev
-    pkgs-unstable.hypridle
-    pkgs-unstable.hyprcursor
+  environment.systemPackages = with pkgs-unstable; [
+    hyprland
+    hyprpaper
+    xorg.xrdb
+    wev
+    hypridle
   ];
   
   programs.hyprland = {

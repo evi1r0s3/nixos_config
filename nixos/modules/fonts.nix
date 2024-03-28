@@ -1,7 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 {
   fonts.packages = with pkgs; [
-    #intel-one-mono
     nerdfonts
     vistafonts-chs
     unifont

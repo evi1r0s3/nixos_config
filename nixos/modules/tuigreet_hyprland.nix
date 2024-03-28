@@ -1,6 +1,6 @@
-{ pkgs, ... }: let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-  hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
+{ pkgs-unstable, ... }: let
+  tuigreet = "${pkgs-unstable.greetd.tuigreet}/bin/tuigreet";
+  hyprland-session = "${pkgs-unstable.hyprland}/share/wayland-sessions";
 in {
   services.greetd = {
     enable = true;
@@ -12,7 +12,7 @@ in {
     };
   };
   
-  environment.systemPackages = with pkgs; [ greetd.tuigreet ];
+  environment.systemPackages = with pkgs-unstable; [ greetd.tuigreet ];
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";

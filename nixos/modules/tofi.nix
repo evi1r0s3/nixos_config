@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ tofi ];
+  environment.systemPackages = with pkgs-unstable; [ tofi ];
 }

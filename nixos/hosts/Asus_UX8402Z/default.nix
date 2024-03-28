@@ -3,13 +3,14 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 # add 'inputs' arg hare to import flakes
-{ config, lib, pkgs, inputs, ... }:
+{ config, lib, pkgs, pkgs-stable, pkgs-unstable, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/zen_kernel.nix
+      ../../modules/basic_tools.nix
       ../../modules/tuigreet_hyprland.nix
       ../../modules/hyprland.nix
       ../../modules/v2raya.nix
@@ -82,38 +83,8 @@
     home = "/home/evi1_f4iry";
     description = "Xenon Evil Fairy";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     tree
-  #   ];
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    helix # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    curl
-    openssh
-    neofetch
-    btop
-    iotop
-    iftop
-    strace
-    lsof
-    ethtool
-    which
-    file
-    gnutar
-    zip
-    unzip
-    xz
-    kitty
-    # EXAMPLE_1,STEP_3
-    # inputs.helix.packages."${pkgs.system}".helix
-  ];
-  environment.variables.EDITOR = "helix";
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

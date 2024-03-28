@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
-  environment.systemPackages = with pkgs; [ ranger ];
+  environment.systemPackages = with pkgs-unstable; [ ranger ];
 }
