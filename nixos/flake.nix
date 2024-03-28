@@ -43,7 +43,6 @@
 	    home-manager.useGlobalPkgs = true;
 	    home-manager.useUserPackages = true;
 	    home-manager.users.evi1_f4iry = import ./home_confs;
-      home-manager.users.root = import ./root_confs;
 	    home-manager.extraSpecialArgs = inputs;
 	  }
         ];
