@@ -4,7 +4,7 @@
     hyprland
     hypridle
     hyprpaper
-    hyprcursor
+    #hyprcursor
     xorg.xrdb
     wev
   ];
