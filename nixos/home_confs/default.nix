@@ -13,6 +13,7 @@
     ./fcitx5
     ./zsh_atuin_p10k
     ./cursor
+    ./helix
   ];
 
   home.username = "evi1_f4iry";
