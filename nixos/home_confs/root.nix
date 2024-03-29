@@ -3,7 +3,7 @@
 {
   imports = [
     ./zsh_atuin_p10k
-    ./helix
+    #./helix
   ];
 
   home.username = "root";
