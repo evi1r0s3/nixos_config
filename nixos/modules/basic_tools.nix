@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs-unstable; [ 
     #helix
-    neovim
+    #neovim
     wget
     git
     curl

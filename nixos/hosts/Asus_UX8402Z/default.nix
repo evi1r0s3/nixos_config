@@ -22,6 +22,7 @@
       ../../modules/eww.nix
       ../../modules/swaylock_effects.nix
       ../../modules/zsh.nix
+      ../../modules/neovim.nix
       #../../modules/emacs.nix
     ];
 
