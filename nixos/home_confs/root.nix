@@ -3,8 +3,8 @@
 {
   imports = [
     ./zsh_atuin_p10k
-    #./helix
-    ./nvim
+    ./helix
+    #./nvim
   ];
 
   home.username = "root";

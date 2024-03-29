@@ -1,11 +1,11 @@
 { pkgs-unstable, ... }:
 {
   environment.systemPackages = with pkgs-unstable; [ 
-    #helix
-    #neovim
+    helix
     wget
     git
     curl
+    emacs
     openssh
     neofetch
     btop
