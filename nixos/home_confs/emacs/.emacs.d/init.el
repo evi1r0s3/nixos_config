@@ -35,4 +35,12 @@
 ;; 为emacs在图形界面中的点点点所产生的配置使用单独的文件
 (setq custom-file (locate-user-emacs-file "custom.el"))
 
+;; 外观配置
+(require 'init-ui)
+
+;; 功能配置
+(require 'init-feature)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(provide 'init)
 ;;; init.el ends here
