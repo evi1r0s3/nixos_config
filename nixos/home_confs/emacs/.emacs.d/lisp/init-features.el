@@ -1,4 +1,4 @@
-;;; init-feature.el --- Features Configuration.	-*- lexical-binding: t no-byte-compile: t -*-
+;;; init-features.el --- Features Configuration.	-*- lexical-binding: t no-byte-compile: t -*-
 ;; evi1_f4iry self use
 ;;; Commentary:
 ;;
@@ -8,7 +8,7 @@
 
 ;;; 原生配置项
 ;; 在关闭 Emacs 前询问是否确认关闭，防止误触
-(setq confirm-kill-emacs #'yes-or-no-p)
+(setq confirm-kill-emacs #'y-or-n-p)
 ;; 自动补全括号
 (electric-pair-mode t)
 ;; 当另一程序修改了文件时，让 Emacs 及时刷新 Buffer

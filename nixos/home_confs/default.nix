@@ -14,6 +14,7 @@
     ./zsh_atuin_p10k
     ./cursor
     ./helix
+    ./emacs
     #./nvim
   ];
 

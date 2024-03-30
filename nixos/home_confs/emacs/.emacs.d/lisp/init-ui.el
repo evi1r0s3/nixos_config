@@ -27,7 +27,7 @@
 ;; 初始启动位置调整，根据界面宽度
 ;; (set-frame-position (selected-frame) (- (/ (display-pixel-width) 3) 190) (- (/ (display-pixel-height) 2) 110))
 ;; 使用全屏
-;; (set-frame-parameter nil 'fullscreen 'fullboth)
+(set-frame-parameter nil 'fullscreen 'fullboth)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-ui)

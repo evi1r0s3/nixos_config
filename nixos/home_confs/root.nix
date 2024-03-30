@@ -4,6 +4,7 @@
   imports = [
     ./zsh_atuin_p10k
     ./helix
+    ./emacs
     #./nvim
   ];
 

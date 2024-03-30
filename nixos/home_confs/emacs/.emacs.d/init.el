@@ -39,7 +39,7 @@
 (require 'init-ui)
 
 ;; 功能配置
-(require 'init-feature)
+(require 'init-features)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init)
