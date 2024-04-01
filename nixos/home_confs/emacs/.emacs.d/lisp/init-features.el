@@ -7,6 +7,8 @@
 ;;; Code:
 
 ;;; 原生配置项
+;; 从 Emacs 29 开始，“yes-or-no-p”将使用“y-or-n-p”
+(setopt use-short-answers t)
 ;; 在关闭 Emacs 前询问是否确认关闭，防止误触
 (setq confirm-kill-emacs #'y-or-n-p)
 ;; 自动补全括号

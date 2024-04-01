@@ -3,6 +3,7 @@
 {
   imports = [
     ./hyprland
+    ./gui
     ./kitty
     ./eww
     ./tofi

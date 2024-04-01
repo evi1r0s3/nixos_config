@@ -11,20 +11,10 @@
     enable = true;
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
-    shellAliases = {
-      ls = "lsd";
-      ll = "lsd -l";
-      la = "lsd -a";
-      lla = "lsd -la";
-      lt = "lsd --tree";
-      tree = "lsd --tree";
-      emx = "emacs";
-    };
     histSize = 10000;
     promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
     ohMyZsh = {
       enable = true;
-      #theme = "robbyrussell";
       plugins = [
         "git"
       ];

@@ -11,6 +11,8 @@
       ./hardware-configuration.nix
       ../../modules/zen_kernel.nix
       ../../modules/basic_tools.nix
+      ../../modules/security.nix
+      ../../modules/garbage_collect.nix
       ../../modules/tuigreet_hyprland.nix
       ../../modules/hyprland.nix
       ../../modules/v2raya.nix
@@ -94,12 +96,7 @@
   # };
  
   # nix
-  # Automatic Garbage Collection
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  
   nix.settings = {
     trusted-users = ["evi1_f4iry"];
     substituters = [
