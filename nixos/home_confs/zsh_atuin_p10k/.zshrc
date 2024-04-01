@@ -12,4 +12,4 @@ alias tree='lsd --tree'
 alias emx='emacs'
 
 # atuin init
-# eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-ctrl-r)"
