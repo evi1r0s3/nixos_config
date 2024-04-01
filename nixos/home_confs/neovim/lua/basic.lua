@@ -3,6 +3,7 @@
 -- vim.w.{name}: 窗口变量
 -- vim.bo.{option}: buffer-local 选项
 -- vim.wo.{option}: window-local 选项
+-- vim.o.{option}:  options 全局选项
 
 -- utf8
 vim.g.encoding = "UTF-8"

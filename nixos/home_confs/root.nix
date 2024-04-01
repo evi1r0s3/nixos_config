@@ -3,9 +3,9 @@
 {
   imports = [
     ./zsh_atuin_p10k
-    ./helix
-    ./emacs
-    #./nvim
+    #./helix
+    #./emacs
+    ./neovim
   ];
 
   home.username = "root";

@@ -172,6 +172,29 @@
 ;; 背景色
 (set-face-background 'show-paren-match "white")
 
+;; ------------------------------------
+;; 字体
+;; 字体测试，等宽后看到的应为同样行长度
+;; |aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa|
+;; |你你你你你你你你你你你你你你你你你你你你|
+;; |,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,|
+;; |。。。。。。。。。。。。。。。。。。。。|
+;; |1111111111111111111111111111111111111111|
+;; |東東東東東東東東東東東東東東東東東東東東|
+;; |ここここここここここここここここここここ|
+;; |ｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺｺ|
+;; |까까까까까까까까까까까까까까까까까까까까|
+;; 根据识别gui的状态，分别设置中英字体尺寸，达到中英等宽
+
+(when (display-graphic-p)
+  (setq fonts
+	(cond ((eq system-type 'darwin) '("IntoneMono NFM" "Microsoft YaHei"))
+	      ((eq system-type 'gnu/linux) '("IntoneMono NFM" "Microsoft YaHei"))
+	      ((eq system-type 'windows-nt) '("IntoneMono NFM" "Microsoft Yahei"))
+    )
+  )
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-ui)
 ;;; init-ui.el ends here
