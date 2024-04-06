@@ -13,10 +13,10 @@
 	# characters not in the chosen font will fail to render.
 	#
 	# Otherwise, fonts are interpreted in Pango format.
-	font = "Fira Code"
+	font = "IntoneMono NFM"
 
 	# Point size of text.
-	font-size = 18
+	font-size = 20
 
 	# Comma separated list of OpenType font feature settings to apply,
 	# if supported by the chosen font. The format is similar to the CSS
@@ -142,7 +142,7 @@
 ### Text layout
 #
 	# Prompt to display.
-	prompt-text = "run: "
+	prompt-text = ">_: "
 
 	# Extra horizontal padding between prompt and input.
 	prompt-padding = 0
@@ -283,12 +283,12 @@
 
 	# If true, directly launch applications on selection when in drun mode.
 	# Otherwise, just print the command line to stdout.
-	drun-launch = false
+	drun-launch = true
 
 	# The terminal to run terminal programs in when in drun mode.
 	# This option has no effect if drun-launch is set to true.
 	# Defaults to the value of the TERMINAL environment variable.
-	# terminal = foot
+	terminal = kitty
 
 	# Delay keyboard initialisation until after the first draw to screen.
 	# This option is experimental, and will cause tofi to miss keypresses

@@ -4,12 +4,13 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+# https://github.com/zsh-users/zsh-autosuggestions/issues/511
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias ls='lsd'
 alias tree='lsd --tree'
-alias emx='emacs'
+alias nv='nvim'
 
 # atuin init
 eval "$(atuin init zsh --disable-ctrl-r)"

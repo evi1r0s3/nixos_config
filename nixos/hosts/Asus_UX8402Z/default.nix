@@ -9,21 +9,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/zen_kernel.nix
-      ../../modules/basic_tools.nix
-      ../../modules/security.nix
-      ../../modules/garbage_collect.nix
-      ../../modules/tuigreet_hyprland.nix
-      ../../modules/hyprland.nix
-      ../../modules/v2raya.nix
-      ../../modules/tofi.nix
-      ../../modules/fcitx5.nix
-      ../../modules/ranger.nix
-      ../../modules/zellij.nix
-      ../../modules/fonts.nix
-      ../../modules/eww.nix
-      ../../modules/swaylock_effects.nix
-      ../../modules/zsh.nix
     ];
 
   # Use the systemd-boot EFI boot loader.

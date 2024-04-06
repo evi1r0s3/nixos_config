@@ -30,28 +30,40 @@
     };
   in {
       nixosConfigurations = {
-      
-      ZenNix0s = lib.nixosSystem rec {
-        # 架构
-	      system = systemSettings.system;
-        # 参数传递
+        ZenNix0s = lib.nixosSystem rec {
+          # 架构
+          system = systemSettings.system;
+          # 参数传递
 	      specialArgs = {
-          inherit pkgs-stable;
-          inherit pkgs-unstable;
+            inherit pkgs-stable;
+            inherit pkgs-unstable;
 	      };
-        # 模块
+          # 模块
 	      modules = [
-          ./hosts/Asus_UX8402Z
+            ./hosts/Asus_UX8402Z
 	        home-manager.nixosModules.home-manager {
 	          home-manager.useGlobalPkgs = true;
 	          home-manager.useUserPackages = true;
-	          home-manager.users.evi1_f4iry = import ./home_confs;
-	          home-manager.users.root = import ./home_confs/root.nix;
+	          home-manager.users.evi1_f4iry = import ./home-manager/evi1_f4iry.nix;
+	          home-manager.users.root = import ./home-manager/root.nix;
 	          home-manager.extraSpecialArgs = {
               inherit pkgs-stable;
               inherit pkgs-unstable;
-            };
+              };
 	        }
+            ./modules/zen_kernel.nix
+            ./modules/basic_tools.nix
+            ./modules/security.nix
+            ./modules/garbage_collect.nix
+            ./modules/tuigreet_hyprland.nix
+            ./modules/hyprland.nix
+            ./modules/v2raya.nix
+            ./modules/fcitx5.nix
+            ./modules/ranger.nix
+            ./modules/fonts.nix
+            ./modules/eww.nix
+            ./modules/swaylock_effects.nix
+            ./modules/zsh.nix
         ];
       };
     };

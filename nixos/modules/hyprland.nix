@@ -7,6 +7,9 @@
     wev
     hypridle
     hyprcursor
+    wl-clipboard
+    cliphist
+    tofi
   ];
   
   programs.hyprland = {

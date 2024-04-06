@@ -20,7 +20,7 @@ return {
         -- config
       }
     end,
-    dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    dependencies = 'nvim-tree/nvim-web-devicons'
   },
   -- which-key 按键提示 https://github.com/folke/which-key.nvim
   { "folke/which-key.nvim",
@@ -54,12 +54,56 @@ return {
   -- lualine 状态栏 https://github.com/nvim-lualine/lualine.nvim
   {
     'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' }
+    event = 'VeryLazy',
+    dependencies = { 'nvim-tree/nvim-web-devicons',opt = true },
+    config = function()
+      require('lualine').setup{
+        options = { theme = 'auto' }
+      }
+    end,
   },
   -- telescope 模糊查找器 https://github.com/nvim-telescope/telescope.nvim
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' }
+  },
+  -- ccc 颜色生成和渲染器 https://github.com/uga-rosa/ccc.nvim
+  { "uga-rosa/ccc.nvim", lazy = true },
+  -- Undotree https://github.com/mbbill/undotree
+  { "mbbill/undotree" },
+  -- gitsigns Git 集成：符号、hunk 动作、blame等 https://github.com/lewis6991/gitsigns.nvim
+  { "lewis6991/gitsigns.nvim" },
+  -- neogit
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+    },
+    config = true
+  },
+  -- codewindow minimap https://github.com/gorbit99/codewindow.nvim
+  {
+    "gorbit99/codewindow.nvim"
+  },
+  -- nvim-treesitte 代码高亮 https://github.com/nvim-treesitter/nvim-treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      require('nvim-treesitter.configs').setup{
+        -- 解析器名称列表或“全部”（应始终安装{ "c", "lua", "vim", "vimdoc", "query" }五个解析器）
+        ensure_installed = "all",
+        -- 同步安装解析器（仅适用于`ensure_installed`）
+        sync_install = false,
+        -- 进入缓冲区时自动安装缺少的解析器
+        -- 建议：如果您本地没有安装 `tree-sitter` CLI，则设置为 false
+        auto_install = false,
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+    }
+    end,
   },
 }

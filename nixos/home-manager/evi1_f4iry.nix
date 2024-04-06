@@ -2,21 +2,20 @@
 
 {
   imports = [
-    ./hyprland
-    ./gui
-    ./kitty
-    ./eww
-    ./tofi
-    ./ranger
-    ./zellij
-    ./Pictures
-    ./swaylock
-    ./fcitx5
-    ./zsh_atuin_p10k
-    ./cursor
-    #./helix
-    #./emacs
-    ./neovim
+    ./modules/hyprland
+    ./modules/gui
+    ./modules/kitty
+    ./modules/eww
+    ./modules/ranger
+    #./modules/zellij
+    ./modules/Pictures
+    ./modules/swaylock
+    ./modules/fcitx5
+    ./modules/zsh_atuin_p10k
+    ./modules/cursor
+    #./modules/helix
+    #./modules/emacs
+    ./modules/neovim
   ];
 
   home.username = "evi1_f4iry";
