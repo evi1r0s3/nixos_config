@@ -1,5 +1,5 @@
 -- 基础设置
-require('basic')
+require("basic")
 
 -- 插件管理
 -- require('plugins')
@@ -18,7 +18,11 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 --]=]
+
+-- 按键绑定
+-- require("keybindings")
 -- lazy 加载
 require("lazy").setup("plugins")
 -- 主题设置
 require("colorscheme")
+

@@ -11,17 +11,25 @@ return {
       vim.cmd([[colorscheme dracula]])
     end,
   },
+  -- telescope 模糊查找器 https://github.com/nvim-telescope/telescope.nvim
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.6',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('config.telescope')
+    end,
+  },
   -- dashboard https://github.com/nvimdev/dashboard-nvim
   {
     'nvimdev/dashboard-nvim',
     event = 'VimEnter',
     config = function()
-      require('dashboard').setup {
-        -- config
-      }
+      require('config.dashboard')
     end,
     dependencies = 'nvim-tree/nvim-web-devicons'
   },
+  --[=[
   -- which-key 按键提示 https://github.com/folke/which-key.nvim
   { "folke/which-key.nvim",
       event = "VeryLazy",
@@ -33,12 +41,22 @@ return {
       opts = {
       }
   },
-  -- bufferline tab栏 https://github.com/akinsho/bufferline.nvim
+  --]=]
+  -- wf 按键提示 https://github.com/Cassin01/wf.nvim
   {
-    'akinsho/bufferline.nvim',
+    "Cassin01/wf.nvim",
     version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons',
-
+    config = function()
+      require("config.wf")
+    end
+  },
+  -- nvim-cokeline tab栏 https://github.com/willothy/nvim-cokeline
+  {
+    "willothy/nvim-cokeline",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require('config.cokeline')
+    end,
   },
   -- neo-tree 文件树 https://github.com/nvim-neo-tree/neo-tree.nvim
   {
@@ -49,7 +67,10 @@ return {
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-    }
+    },
+    config = function()
+      require('config.neotree')
+    end,
   },
   -- lualine 状态栏 https://github.com/nvim-lualine/lualine.nvim
   {
@@ -57,16 +78,8 @@ return {
     event = 'VeryLazy',
     dependencies = { 'nvim-tree/nvim-web-devicons',opt = true },
     config = function()
-      require('lualine').setup{
-        options = { theme = 'auto' }
-      }
+      require('config.lualine')
     end,
-  },
-  -- telescope 模糊查找器 https://github.com/nvim-telescope/telescope.nvim
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.6',
-    dependencies = { 'nvim-lua/plenary.nvim' }
   },
   -- ccc 颜色生成和渲染器 https://github.com/uga-rosa/ccc.nvim
   { "uga-rosa/ccc.nvim", lazy = true },
@@ -103,7 +116,16 @@ return {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
-    }
+      }
+    end,
+  },
+  -- indent-blankline 缩进显示 https://github.com/lukas-reineke/indent-blankline.nvim
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    config = function()
+      require('config.blankline')
     end,
   },
 }

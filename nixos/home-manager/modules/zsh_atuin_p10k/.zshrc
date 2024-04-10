@@ -10,7 +10,7 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 alias ls='lsd'
 alias tree='lsd --tree'
-alias nv='nvim'
+alias se='sudo -E'
 
 # atuin init
 eval "$(atuin init zsh --disable-ctrl-r)"

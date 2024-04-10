@@ -6,7 +6,8 @@
 -- vim.o.{option}:  options 全局选项
 
 -- utf8
-vim.g.encoding = "UTF-8"
+vim.scriptencoding = 'utf-8'
+vim.g.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
 -- jkhl 移动时光标周围保留8行
 vim.o.scrolloff = 8
@@ -74,7 +75,8 @@ vim.o.termguicolors = true
 vim.opt.termguicolors = true
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
-vim.o.listchars = "space:·,tab:<->"
+-- vim.o.listchars = "space:·,tab:<->"
+vim.o.listchars = "tab:<->"
 -- 补全增强
 vim.o.wildmenu = true
 -- 不要将消息传递给 |ins-completin menu|
@@ -85,3 +87,7 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
+-- 在终端中使用真彩色
+vim.opt.termguicolors = true
+-- 每个分割窗口都有单独的状态行
+vim.opt.laststatus = 2
