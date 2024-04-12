@@ -17,6 +17,7 @@
       enable = true;
       plugins = [
         "git"
+        "direnv"
       ];
     };
   };

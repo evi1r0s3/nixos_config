@@ -65,7 +65,7 @@ require("cokeline").setup(
       filetype = 'neo-tree',
       components = {
         {
-          text = "  Neotree",
+          text = "  NeoVIM",
           fg = dark,
           bg = high,
           style = 'bold'
@@ -102,7 +102,9 @@ require("cokeline").setup(
         end,
         fg = dark
       },
-      space,
+      {
+        text = function(buffer) return buffer.index .. ' ' end,
+      },
       {
         text = function(buffer)
           if is_picking_focus() or is_picking_close() then
@@ -132,13 +134,19 @@ require("cokeline").setup(
       {
         text = function(buffer)
           if get_path_parts(buffer.path) ~= nil then
-            return get_path_parts(buffer.path) .. "⠀"
+            return get_path_parts(buffer.path) .. " "
           else
-           return buffer.unique_prefix .. buffer.filename .. "⠀"
+           return buffer.unique_prefix .. buffer.filename .. " "
           end
         end,
         style = function(buffer)
           return buffer.is_focused and "bold" or nil
+        end
+      },
+      {
+        text = '󰅙',
+        on_click = function(_, _, _, _, buffer)
+        buffer:delete()
         end
       },
       {

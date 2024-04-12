@@ -116,7 +116,7 @@ require('lualine').setup {
         sections = { 'warn' },
         diagnostics_color = { warn = { bg = colors.orange, fg = colors.white } },
       },
-      { 'filename', file_status = false, path = 1 },
+      { 'filename', file_status = true },
       { modified, color = { bg = colors.red } },
       {
         '%w',
@@ -139,7 +139,7 @@ require('lualine').setup {
     },
     lualine_c = {},
     lualine_x = {},
-    lualine_y = { search_result, 'filetype' },
+    lualine_y = { search_result, 'filetype', 'encoding','filesize' },
     lualine_z = { '%l:%c', '%p%%/%L' },
   },
   inactive_sections = {

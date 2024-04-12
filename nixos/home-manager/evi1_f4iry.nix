@@ -13,9 +13,10 @@
     ./modules/fcitx5
     ./modules/zsh_atuin_p10k
     ./modules/cursor
-    #./modules/helix
+    ./modules/helix
     #./modules/emacs
     ./modules/neovim
+    ./modules/develop
   ];
 
   home.username = "evi1_f4iry";

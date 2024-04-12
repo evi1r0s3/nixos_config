@@ -1,7 +1,7 @@
 require('dashboard').setup{
   theme = 'hyper',
-  disable_move = false,
-  shortcut_type = "letter",
+  disable_move = true,
+  shortcut_type = "number",
   change_to_vcs_root = false,
   config = {
     header = {
@@ -36,8 +36,8 @@ require('dashboard').setup{
     -- limit how many projects list, action when you press key or enter it will run this action.
     -- action can be a functino type, e.g.
     -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
-    -- project = { enable = true, limit = 8, icon = 'your icon', label = '', action = 'Telescope find_files cwd=' },
-    -- mru = { limit = 10, icon = 'your icon', label = '', cwd_only = false }, 
+    project = { enable = true, limit = 5, action = 'Telescope find_files cwd=' },
+    mru = { limit = 4, cwd_only = false }, 
     footer = { '','Be obsessed, or be average.','','帝力于我何有哉; 不疯魔，不成活。' },
   },
   hide = {
