@@ -19,5 +19,7 @@
     unzip
     xz
     kitty
+    foot
+    warp-terminal
   ];
 }

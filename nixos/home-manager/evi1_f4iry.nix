@@ -4,7 +4,7 @@
   imports = [
     ./modules/hyprland
     ./modules/gui
-    ./modules/kitty
+    #./modules/kitty
     ./modules/eww
     ./modules/ranger
     #./modules/zellij
