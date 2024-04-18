@@ -1,71 +1,72 @@
-;;; init-package.el --- Package Configuration.	-*- lexical-binding: t -*-
-;; evi1_f4iry
+;;; init-package.el --- the package config -*- lexical-binding: t -*-
+;; Author: evi1_f4iry
+;; Github: https://github.com/evi1r0s3
 ;;; Commentary:
-;;
-;; Define constants.
 ;;
 ;;; Code:
 
-;; ------------  源的配置  ------------
-;; 软件源换成国内源
-(setq package-archives '(("melpa" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-      ("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-      ("org" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
-;; ------------------------------------
+;; 为emacs在图形界面中的点点点所产生的配置使用单独的文件
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
 
-;; ------------包管理器配置------------
-;; 个别包更新会出现签名失败，配置为不检查签名
-(setq package-check-signature nil)
-;; 引入包管理器
-(require 'package)
-;; 包管理器初始化，除非包管理器已经初始化，否则对包管理器进行初始化
-(unless (bound-and-true-p package--initialized)
+;; HACK: DO NOT save `package-selected-packages' to `custom-file'
+;; @see https://github.com/jwiegley/use-package/issues/383#issuecomment-247801751
+(defun my-package--save-selected-packages (&optional value)
+  "Set `package-selected-packages' to VALUE but don't save to option `custom-file'."
+  (when value
+    (setq package-selected-packages value))
+  (unless after-init-time
+    (add-hook 'after-init-hook #'my-package--save-selected-packages)))
+(advice-add 'package--save-selected-packages :override #'my-package--save-selected-packages)
+
+;; 设置包源换成国内源
+(setq package-archives '(("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+      ("gnu" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+      ("org" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")))
+
+;; 初始化 package
+(unless (bound-and-true-p package--initialized) ; To avoid warnings in 27
+  (setq package-enable-at-startup nil)          ; To prevent initializing twice
   (package-initialize))
-;; 刷新软件源索引，除非已经刷新到最新到索引，否则进行索引刷新
-(unless package-archive-contents
-  (package-refresh-contents))
-;; ------------------------------------
 
-;; ----------use-package 配置----------
-;; emacs < 29.1
-;; use-package宏提供了更简洁的方法来设置包自动加载、键绑定和各种模式配置。 重点是通过自动加载包而不是在启动时加载它们来减少启动时间
-;; 除非已经安装use-package，否则刷新索引，并安装use-package
-;; use-package 已经在emacs 29.1开始内置，所以不再需要判断是否安装
-;; (unless (package-installed-p 'use-package)
-;;   (package-refresh-contents)
-;;   (package-install 'use-package))
-;; 全局use-package配置，需要在use-package之前
-;; (eval-and-compile
-;;   (setq use-package-always-ensure t)	; 全部包需要确认安装，不需要单独填写此配置
-;;   (setq use-package-always-defer t)	; 全部延迟加载
-;;   (setq use-package-always-demand nil)
-;;   (setq use-package-expand-minimally t)
-;;   (setq use-package-verbose t))
-;; (eval-when-compile
-;;   (require 'use-package))
-;; ------------------------------------
-;; emacs >=29.1
-;; 全居包自动安装
-(require 'use-package-ensure)
+;; 更新内置包
+(setq package-install-upgrade-built-in t)
+
+;; 设定 `use-package'
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+;; 加载`use-package'前设置
+;; 全部确认安装
 (setq use-package-always-ensure t)
-;; 全部延迟加载
+;; 一概延迟加载
 (setq use-package-always-defer t)
-(setq use-package-always-demand nil)
-;; nil（默认值），use-package 将尝试捕获并报告在 init 文件中扩展 use-package 声明期间发生的错误。将 use-package-expand-minimally 设置为 t 会完全禁用此检查
+;; 禁用捕捉包错误报告
 (setq use-package-expand-minimally t)
-(setq use-package-verbose t)
-;; ------------------------------------
+;; 使用imenu定位到use-package配置块
+(setq use-package-enable-imenu-support t)
 
-;; ----------- 补充功能配置 -----------
-;; 包自动升级
-(use-package auto-package-update
-  :init
-  (setq auto-package-update-delete-old-versions t
-        auto-package-update-hide-results t)
-  (defalias 'upgrade-packages #'auto-package-update-now))
-;; ------------------------------------
+;; 启用`use-package'
+(use-package diminish :ensure t)
 
+;; 更新 GNU ELPA 的 GPG 密钥环
+(use-package gnu-elpa-keyring-update)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; 包升级
+(unless (fboundp 'package-upgrade-all)
+  (use-package auto-package-update
+    :init
+    (setq auto-package-update-delete-old-versions t
+          auto-package-update-hide-results t)
+    (defalias 'package-upgrade-all #'auto-package-update-now)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-package)
+
 ;;; init-package.el ends here
+;;; Local Variables:
+;; coding: utf-8
+;; byte-compile-warnings: (not unresolved obsolete)
+;; End:

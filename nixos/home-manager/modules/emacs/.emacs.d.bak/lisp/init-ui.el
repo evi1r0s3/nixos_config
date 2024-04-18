@@ -1,12 +1,11 @@
-;;; init-ui.el --- UI Configuration.	-*- lexical-binding: t -*-
-;; evi1_f4iry
+;;; init-ui.el --- the UI of emacs -*- lexical-binding: t -*-
+;; Author: evi1_f4iry
+;; Github: https://github.com/evi1r0s3
 ;;; Commentary:
-;;
-;; Define UI.
 ;;
 ;;; Code:
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 启动窗口
 
 ;;（可选）设定启动图形界面时的初始 Frame 宽/高（字符数）
@@ -17,7 +16,7 @@
 ;; 使用全屏
 ;; (set-frame-parameter nil 'fullscreen 'fullboth)
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 欢迎界面
 
 ;; 关闭启动 Emacs 时的欢迎界面
@@ -41,7 +40,8 @@
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
 ;; 1, 2 or 3 which displays one of the text banners
-;; "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt" which displays whatever gif/image/text you would prefer
+;; "path/to/your/image.gif", "path/to/your/image.png" or "path/to/your/text.txt"
+;; which displays whatever gif/image/text you would prefer
 ;; 横向居中
 (setq dashboard-center-content t)
 ;; 垂直居中
@@ -56,33 +56,33 @@
   (registers . 5)))
 ;; 其他选项见github
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 基础界面
 
 ;; 标题栏显示绝对路径
 ;; (setq frame-title-format '("" "%b <%f> @ Emacs " emacs-version))
 ;; 标题栏显示版本及自定义信息
 (setq frame-title-format '("evi1_f4iry @ Emacs " emacs-version))
-;; ------------------------------------
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 光标
 
 ;; 非当前选中的窗口不显示光标
 (setq cursor-in-non-selected-windows t)
 ;; 光标改为竖线
-(setq-default cursor-type 'bar)
+(setq-default cursor-type '(bar . 5))
 ;; 全局光标所在行高亮
 (global-hl-line-mode 1)
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 行列
 
 ;; display-line-numbers-type的行号实现方法
-;; relative相对，visual绝对，设置为相对行号，因为光标所在处会显示绝对行号，其他行则为相对，方便跳转
+;; relative相对，visual绝对，设置为相对行号，因为光标所在处会显示绝对行号，
+;; 其他行则为相对，方便跳转
 (setq display-line-numbers-type 'relative)
 ;; 在全局显示行号
 (global-display-line-numbers-mode 1)
-;; 设置上下行距，从而保持中英文混合的行不会抖动，根据字体调节一下
-;;(setq default-text-properties '(line-spacing 0.15 line-height 1.15))
 ;; linum的实现方式，可以改行号的格式
 ;; 显示行号
 ;; (global-linum-mode 1)
@@ -92,7 +92,8 @@
 ;;      (propertize (format (format "%%%dd \u250a " w) line) 'face 'linum)))
 ;; (setq linum-format 'linum-format-func)
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; 符号及标识处理
 
 ;; 编程模式下，光标在括号上时高亮另一个括号
@@ -119,7 +120,8 @@
 ;; 高亮转义
 ;;(use-package highlight-escape-sequences)
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; modeline
 
 ;; modeline 显示时间
@@ -131,13 +133,12 @@
 ;; 在 Modeline 上显示列号
 (column-number-mode t)
 ;; modeline 主题配置
-;; (use-package powerline
-;;   :init
-;;   (powerline-center-theme))
-(use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+(use-package powerline
+  :init
+  (powerline-center-theme))
 
-;; ------------------------------------
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; tab栏
 
 ;; 显示tab栏
@@ -149,7 +150,9 @@
 ;; tab分隔符号设定
 (setq tab-line-separator "| |")
 
-;; ------------------------------------
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; 主题与配色
 ;; 德古拉主题
 (use-package dracula-theme
@@ -167,6 +170,11 @@
 ;; ;; 背景色
 ;; (set-face-background 'show-paren-match "white")
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-ui)
+
 ;;; init-ui.el ends here
+;;; Local Variables:
+;; coding: utf-8
+;; byte-compile-warnings: (not unresolved obsolete)
+;; End:

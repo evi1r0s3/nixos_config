@@ -14,7 +14,7 @@
     ./modules/zsh_atuin_p10k
     ./modules/cursor
     ./modules/helix
-    #./modules/emacs
+    ./modules/emacs
     ./modules/neovim
     ./modules/develop
   ];
