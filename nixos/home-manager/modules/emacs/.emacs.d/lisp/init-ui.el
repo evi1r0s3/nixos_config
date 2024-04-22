@@ -81,20 +81,26 @@
 (use-package display-line-numbers
              :custom
              (display-line-numbers-grow-only t)
+             ;; 配置行号的初始位数为3位，防止增行到100时行号区域晃动
              (display-line-numbers-width 3)
-             ;; relative相对，visual绝对，设置为相对行号，因为光标所在处会显示绝对行号，其他行则为相对，方便跳转
+             ;; relative相对，visual绝对，设置为相对行号
              (display-line-numbers-type 'relative)
              (display-line-numbers-major-tick t)
-             :init
-             ;; 当前行号颜色和加粗
-             (set-face-attribute 'line-number-current-line nil :foreground "#ff92df" :weight 'bold)
-             ;; 所有行号的背景
-             (set-face-attribute 'line-number nil :background "black")
              :hook
              (conf-mode . display-line-numbers-mode)
              (prog-mode . display-line-numbers-mode)
-             (text-mode . display-line-numbers-mode))
-
+             (text-mode . display-line-numbers-mode)
+             :after
+             ;; 因为主题会修改行号一栏，所以行号的face设置应在主题之后
+             (dracula-theme)
+             :config
+             ;; 所有行号的高度，和汉字一个尺寸，这样就能避免由于中英字体尺寸配置缩放系数
+             ;; 等宽而导致行高输入抖动，使用height限制高度而不是直接设置字体字号是因为可以
+             ;; 更精细的配置，尽量减少行距
+             (set-face-attribute 'line-number nil :height 138)
+             ;; 当前行号颜色和加粗
+             (set-face-attribute 'line-number-current-line nil :foreground "#ff92df" :weight 'bold)
+             )
 ;; 设置单行代码长度提示
 (setq-default fill-column 90)
 (add-hook 'after-init-hook 'global-display-fill-column-indicator-mode)
