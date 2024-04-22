@@ -17,6 +17,7 @@
     ./modules/emacs
     ./modules/neovim
     ./modules/develop
+    ./modules/foot
   ];
 
   home.username = "evi1_f4iry";

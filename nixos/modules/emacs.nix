@@ -2,11 +2,13 @@
 {
   environment.systemPackages = with pkgs-unstable; [
     emacs
-#    (emacsWithPackages (epkgs: with emacsPackages; [
-#       dashboard
-#       rainbow-delimiters
-#       dracula-theme
-#       doom-modeline
-#    ]))
+
+    # (emacsWithPackages (epkgs: with emacsPackages; [
+    #    dashboard
+    #    rainbow-delimiters
+    #    dracula-theme
+    #    doom-modeline
+    #    all-the-icons
+    # ]))
   ];
 }

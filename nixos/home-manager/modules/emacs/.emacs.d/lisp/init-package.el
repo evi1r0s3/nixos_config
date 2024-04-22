@@ -53,7 +53,6 @@
 
 ;; 更新 GNU ELPA 的 GPG 密钥环
 (use-package gnu-elpa-keyring-update)
-
 ;; 包升级
 (unless (fboundp 'package-upgrade-all)
   (use-package auto-package-update

@@ -20,6 +20,11 @@
              :custom (treesit-auto-install 'prompt)
              :config (treesit-auto-add-to-auto-mode-alist 'all))
 
+;; direnv
+(use-package direnv
+             :config
+             (direnv-mode))
+
 (when nil
   ;; Tree-sitter (treesit - emacs.v29起内置)
   (use-package treesit

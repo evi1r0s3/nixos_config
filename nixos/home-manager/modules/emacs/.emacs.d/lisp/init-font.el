@@ -35,7 +35,7 @@
 (font/set-font-by-mono "Iosevka NFM" 24)
 )
 
-(when nil
+;;(when nil
 ;; 方法二，按比例配置中英文字体
 ;; 缺点：
 ;; 1.需要修改上下行距，否则输入英文后再输入中文，行高度会变化视觉上会有抖动，修改后显得不紧凑
@@ -53,10 +53,10 @@
     (setq face-font-rescale-alist (if (/= ratio 0.0) `((,CN-FONT-NAME . ,ratio)) nil))))
 (font/set-font-by-scale "IntoneMono NFM" "Microsoft Yahei" 24 1.25)
 ;; 设置上下行距，从而保持中英文混合的行不会抖动，根据字体调节一下
-(setq default-text-properties '(line-spacing 0.15 line-height 1.15))
-)
+;; (setq default-text-properties '(line-spacing 0.15 line-height 1.15))
+;;)
 
-;;(when nil
+(when nil
 ;; 方法三，使用已知配对效果好的中英文字体组合
 ;; 缺点：
 ;; 1.有些字体组合需要修改行距
@@ -68,7 +68,7 @@
 (font/set-font-no-scale "UbuntuMono Nerd Font Mono" "Microsoft Yahei" 28)
 ;; 设置上下行距，从而保持中英文混合的行不会抖动，根据字体调节一下
 (setq default-text-properties '(line-spacing 0.11 line-height 1.225))
-;;)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-font)

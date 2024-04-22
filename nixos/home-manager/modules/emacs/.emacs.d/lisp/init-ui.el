@@ -24,19 +24,19 @@
 (setq inhibit-startup-message t)
 ;; 使用 dashboard 启动界面
 (use-package dashboard
-  :demand t
-  :config
-  (dashboard-setup-startup-hook))
+             :demand t
+             :config
+             (dashboard-setup-startup-hook))
 ;; 在使用守护进程的模式下同样启用
 (setq initial-buffer-choice
-  (lambda () (get-buffer "*dashboard*")))
+      (lambda () (get-buffer "*dashboard*")))
 ;; title
 (setq dashboard-banner-logo-title "Be obsessed, or be average.")
 (setq dashboard-footer-messages '("帝力于我何有哉; 不疯魔，不成活。 "))
 ;; banner
 (setq dashboard-startup-banner
-  (expand-file-name
-    (if (display-graphic-p) "./elements/logo.png" "./elements/banner.txt") user-emacs-directory))
+      (expand-file-name
+        (if (display-graphic-p) "./elements/logo.png" "./elements/banner.txt") user-emacs-directory))
 ;; Value can be
 ;; 'official which displays the official emacs logo
 ;; 'logo which displays an alternative emacs logo
@@ -50,10 +50,10 @@
 (setq dashboard-show-shortcuts nil)
 ;; 显示的类别数量
 (setq dashboard-items '((recents  . 5)
-  (bookmarks . 5)
-  (projects . 5)
-  (agenda . 5)
-  (registers . 5)))
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
 ;; 其他选项见github
 
 ;; ------------------------------------
@@ -63,6 +63,8 @@
 ;; (setq frame-title-format '("" "%b <%f> @ Emacs " emacs-version))
 ;; 标题栏显示版本及自定义信息
 (setq frame-title-format '("evi1_f4iry @ Emacs " emacs-version))
+(use-package solaire-mode
+             :hook (after-init . solaire-global-mode))
 ;; ------------------------------------
 ;; 光标
 
@@ -71,26 +73,31 @@
 ;; 光标改为竖线
 (setq-default cursor-type 'bar)
 ;; 全局光标所在行高亮
-(global-hl-line-mode 1)
+(global-hl-line-mode nil)
 
 ;; ------------------------------------
 ;; 行列
+;; Show line numbers
+(use-package display-line-numbers
+             :custom
+             (display-line-numbers-grow-only t)
+             (display-line-numbers-width 3)
+             ;; relative相对，visual绝对，设置为相对行号，因为光标所在处会显示绝对行号，其他行则为相对，方便跳转
+             (display-line-numbers-type 'relative)
+             (display-line-numbers-major-tick t)
+             :init
+             ;; 当前行号颜色和加粗
+             (set-face-attribute 'line-number-current-line nil :foreground "#ff92df" :weight 'bold)
+             ;; 所有行号的背景
+             (set-face-attribute 'line-number nil :background "black")
+             :hook
+             (conf-mode . display-line-numbers-mode)
+             (prog-mode . display-line-numbers-mode)
+             (text-mode . display-line-numbers-mode))
 
-;; display-line-numbers-type的行号实现方法
-;; relative相对，visual绝对，设置为相对行号，因为光标所在处会显示绝对行号，其他行则为相对，方便跳转
-(setq display-line-numbers-type 'relative)
-;; 在全局显示行号
-(global-display-line-numbers-mode 1)
-;; 设置上下行距，从而保持中英文混合的行不会抖动，根据字体调节一下
-;;(setq default-text-properties '(line-spacing 0.15 line-height 1.15))
-;; linum的实现方式，可以改行号的格式
-;; 显示行号
-;; (global-linum-mode 1)
-;; 设置行号的显示格式
-;; (defun linum-format-func (line)
-;;   (let ((w (length (number-to-string (count-lines (point-min) (point-max))))))
-;;      (propertize (format (format "%%%dd \u250a " w) line) 'face 'linum)))
-;; (setq linum-format 'linum-format-func)
+;; 设置单行代码长度提示
+(setq-default fill-column 90)
+(add-hook 'after-init-hook 'global-display-fill-column-indicator-mode)
 
 ;; ------------------------------------
 ;; 符号及标识处理
@@ -99,15 +106,26 @@
 (add-hook 'prog-mode-hook #'show-paren-mode)
 ;; 彩虹括号
 (use-package rainbow-delimiters
-  :hook (prog-mode . rainbow-delimiters-mode))
+             :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; 所有图标支持
+(use-package all-the-icons
+             :if (display-graphic-p)
+             :config
+             ;; Use 'prepend for the NS and Mac ports or Emacs will crash.
+             (set-fontset-font t 'unicode (font-spec :family "all-the-icons") nil 'append)
+             (set-fontset-font t 'unicode (font-spec :family "file-icons") nil 'append)
+             (set-fontset-font t 'unicode (font-spec :family "Material Icons") nil 'append)
+             (set-fontset-font t 'unicode (font-spec :family "github-octicons") nil 'append)
+             (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append)
+             (set-fontset-font t 'unicode (font-spec :family "Weather Icons") nil 'append))
+
 ;;(use-package all-the-icons
 ;;  :config
 ;;  (set-fontset-font t 'symbol "Apple Color Emoji")
 ;;  (set-fontset-font t 'symbol "Noto Color Emoji" nil 'append)
 ;;  (set-fontset-font t 'symbol "Segoe UI Emoji" nil 'append)
-;;  (set-fontset-font t 'symbol "Symbola" nil 'append))
+;;  (set-fontset-font t 'symbol "Symbola" nil 'append)
 ;; org-mode 下获得更好的标识符号
 ;;(use-package org-bullets
 ;;  :config
@@ -131,39 +149,64 @@
 ;; 在 Modeline 上显示列号
 (column-number-mode t)
 ;; modeline 主题配置
-;; (use-package powerline
-;;   :init
-;;   (powerline-center-theme))
 (use-package doom-modeline
-  :hook (after-init . doom-modeline-mode))
+             :hook (after-init . doom-modeline-mode))
 
 ;; ------------------------------------
 ;; tab栏
 
-;; 显示tab栏
-(global-tab-line-mode t)
-;; 关闭tab的新建按钮
-(setq tab-line-new-button-show nil)
-;; 关闭tab的关闭按钮
-(setq tab-line-close-button-show nil)
-;; tab分隔符号设定
-(setq tab-line-separator "| |")
+(use-package centaur-tabs
+             :demand
+             :config
+             ;; 圆角主题
+             (setq centaur-tabs-style "bar")
+             ;; 高度
+             (setq centaur-tabs-height 35)
+             ;; 使用标签图标
+             (setq centaur-tabs-set-icons t)
+             ;; 显示新建标签按钮
+             (setq centaur-tabs-show-new-tab-button t)
+             ;; 显示修改标记
+             (setq centaur-tabs-set-modified-marker t)
+             ;; 显示导航按钮
+             (setq centaur-tabs-show-navigation-buttons t)
+             ;; 选中标签显示彩条的位置
+             (setq centaur-tabs-set-bar 'under)
+             ;; 是否显示标签计数
+             ;; (setq centaur-tabs-show-count nil)
+             ;; 选中标签的标记线颜色
+             (set-face-attribute 'centaur-tabs-active-bar-face nil :background "#ff92df")
+             ;; 标签最大长度
+             ;; (setq centaur-tabs-label-fixed-length 15)
+             ;; (setq centaur-tabs-gray-out-icons 'buffer)
+             ;; 图标无色
+             (setq centaur-tabs-plain-icons t)
+             ;; (setq x-underline-at-descent-line t)
+             ;; (setq centaur-tabs-left-edge-margin nil)
+             ;; 标签关闭按钮图标
+             (setq centaur-tabs-close-button "󰅙")
+             (centaur-tabs-change-fonts "IntoneMono NFM" 120)
+             (centaur-tabs-mode t)
+             :bind
+             ;; `ctrl+pgup\pgdown'切换标签
+             ("C-<prior>" . centaur-tabs-backward)
+             ("C-<next>" . centaur-tabs-forward))
 
 ;; ------------------------------------
 ;; 主题与配色
 ;; 德古拉主题
 (use-package dracula-theme
-  :init (load-theme 'dracula t))
+             :init (load-theme 'dracula t))
 ;; 对括号识别进行配置，此配置需要在德古拉主题之后，因为主题会改变括号加粗，导致行抖动
 ;; 默认情况下，在显示匹配的括号之前会有一个小的延迟，设置为0
-;; (setq show-paren-delay 0)
-;; (show-paren-mode 1)
-;; ;; 需要paren才能配置
-;; (require 'paren)
+(setq show-paren-delay 0)
+(show-paren-mode 1)
+;; 需要paren才能配置
+(require 'paren)
 ;; ;; 前景色
 ;; (set-face-foreground 'show-paren-match "red")
-;; ;; 不对括号匹配加粗
-;; (set-face-bold 'show-paren-match nil)
+;; 不对括号匹配加粗
+(set-face-bold 'show-paren-match nil)
 ;; ;; 背景色
 ;; (set-face-background 'show-paren-match "white")
 
