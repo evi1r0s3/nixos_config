@@ -56,6 +56,10 @@
 ;; 挂载目录
 (update-load-path)
 
+(setq-default major-mode 'text-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
+
 ;; 前置
 ;; 自定义函数
 (require 'init-funcs)

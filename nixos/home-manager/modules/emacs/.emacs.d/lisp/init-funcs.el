@@ -17,6 +17,12 @@
   (interactive)
   (set-buffer-file-coding-system 'undecided-dos nil))
 
+;; math
+(defun math/round-down (num)
+  (*(floor (/ num 0.5)) 0.5))
+
+;; (math/round-down 4.8) ; 输出结果为 4.5
+;; (math/round-down 4.3) ; 输出结果为 4.0
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-funcs)

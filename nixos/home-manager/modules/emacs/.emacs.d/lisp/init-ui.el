@@ -54,7 +54,7 @@
                         (projects . 5)
                         (agenda . 5)
                         (registers . 5)))
-;; 其他选项见github
+;; 其他选项见`github'
 
 ;; ------------------------------------
 ;; 基础界面
@@ -97,7 +97,7 @@
              ;; 所有行号的高度，和汉字一个尺寸，这样就能避免由于中英字体尺寸配置缩放系数
              ;; 等宽而导致行高输入抖动，使用height限制高度而不是直接设置字体字号是因为可以
              ;; 更精细的配置，尽量减少行距
-             (set-face-attribute 'line-number nil :height 138)
+             (set-face-attribute 'line-number nil :foreground "#6272A4" :background "#282A36")
              ;; 当前行号颜色和加粗
              (set-face-attribute 'line-number-current-line nil :foreground "#ff92df" :weight 'bold)
              )

@@ -48,7 +48,7 @@
 ;; 使用imenu定位到use-package配置块
 (setq use-package-enable-imenu-support t)
 
-;; 启用`use-package'
+;; 启用`use-package' diminish 关键字功能
 (use-package diminish :ensure t)
 
 ;; 更新 GNU ELPA 的 GPG 密钥环

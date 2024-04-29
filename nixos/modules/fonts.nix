@@ -6,7 +6,6 @@
       vistafonts-chs
       unifont
       emojione
-      emacs-all-the-icons-fonts
     ];
     fontDir.enable = true;
     fontconfig.enable = true;
