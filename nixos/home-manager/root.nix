@@ -2,10 +2,9 @@
 
 {
   imports = [
-    ./modules/zsh_atuin_p10k
-    #./modules/helix
-    #./modules/emacs
-    #./modules/neovim
+    #./modules/zsh_atuin_p10k
+    
+    ./modules/shell
   ];
 
   home.username = "root";
