@@ -207,7 +207,7 @@ disabled = false
 [os]
 disabled = false
 style = "bg:color_os fg:color_os_text"
-format = '[ $symbol(Ver.$version)(  $edition)(  $codename)(  $type)]($style)'
+format = '[ $symbol(Ver.$version)]($style)'
 ## uncomment the format above for all available information and comment out the line below
 # format = '[$symbol]($style)'
 ## other variables:
@@ -273,7 +273,7 @@ nu_indicator = "[NU󰥭](fg:color_base_green)" # nf-md-greater_than
 xonsh_indicator = "🐚" # seashell emoji
 cmd_indicator = "CMD " # nf-cod-terminal_cmd
 unknown_indicator = "" # nf-fa-question_circle
-style = "bg:none fg:color_base_yellow"
+style = "bold bg:none fg:color_base_yellow"
 format = "[ $indicator ]($style)"
 
 [time]
@@ -283,7 +283,7 @@ style = "bg:color_time fg:color_time_text"
 # use_12hr = true
 time_format = "%F %a [%H:%M:%S]"
 time_range = "-"
-format = "[  $time ]($style) " #  = nf-oct-clock
+format = "[ 󰚀 $time ]($style) " #  = nf-oct-clock
 
 [custom.root]
 # disabled = true
@@ -339,7 +339,7 @@ format = "[($ssh_symbol)$hostname]($style)"
 [directory]
 disabled = false
 ## If you change the home_symbol, you need the change the directory.substitutions below, as well
-home_symbol = "" # nf-seti-home ### TODO: add space again
+# home_symbol = "" # nf-seti-home ### TODO: add space again
 # home_symbol = "󰮧" # nf-md-home_variant_outline
 # home_symbol = "" # nf-oct-home
 # home_symbol = "" # nf-cod-home
@@ -347,33 +347,23 @@ read_only = "󰷮" # nf-fa-lock ### TODO: Verify
 style = "italic bg:color_directory fg:color_foreground_light"
 read_only_style = "bg:color_directory_read_only fg:color_foreground_light"
 #before_repo_root_style = "italic bg:color_directory_repo_before fg:color_foreground_light"
-#repo_root_style = "italic bold bg:color_directory fg:color_foreground_light"
-# truncate_to_repo = false
-truncation_length = 4 # default = 3
-truncation_symbol = "…" # default = ""
+repo_root_style = "italic bold bg:color_sourcecontrol fg:color_foreground_dark"
+truncate_to_repo = false
+truncation_length = 0 # default = 3
+truncation_symbol = "… " # default = ""
 # fish_style_pwd_dir_length = 3 # default = 0
 # use_logical_path = false
 # use_os_path_sep = false
 format = """\
-([](bg:color_background_base fg:color_directory_read_only)[ $read_only ]($read_only_style)[](bg:color_background_base fg:color_directory_read_only))\
-[](bg:color_background_base fg:color_directory)[ $path ]($style)[](bg:color_background_base fg:color_directory)\
+([](bg:color_background_base fg:color_directory_read_only)[ $read_only ]($read_only_style)[](bg:color_background_base fg:color_directory_read_only)\
+[](bg:color_background_base fg:color_sourcecontrol)[ computer](italic bold bg:color_sourcecontrol fg:color_foreground_dark)[](bg:color_directory fg:color_sourcecontrol))\
+[](bg:color_background_base fg:color_directory)[ $path ]($style)[](bg:color_background_base fg:color_directory)\
 """
 repo_root_format = """\
 ([](bg:color_background_base fg:color_directory_read_only)[ $read_only ]($read_only_style)[](bg:color_background_base fg:color_directory_read_only))\
-[](bg:color_background_base fg:color_directory)\
-[ $repo_root ]($repo_root_style)\
-[ $path ]($style)\
-[](bg:color_background_base fg:color_directory)\
+([](bg:color_background_base fg:color_sourcecontrol)[ $repo_root]($repo_root_style)[](bg:color_directory fg:color_sourcecontrol))\
+[](bg:color_sourcecontrol fg:color_directory)[ $path ]($style)[](bg:color_background_base fg:color_directory)\
 """
-
-[directory.substitutions] ### TODO: add space again
-"/Documents" = "󰈚" # nf-md-text_box
-"/Downloads" = "" # nf-fa-download
-"/Music" = "" # nf-fa-music
-"/Movies" = "󰿎" # nf-md-movie_open
-"/Pictures" = "" # nf-fa-image
-"/Sources" = "󰗀" # nf-md-xml
-"/" = "󰅂"
 
 [direnv]
 symbol = " direnv"
@@ -542,7 +532,7 @@ GIT_REMOTE_SYMBOL="" # nf-fa-git_square
 else
 # GIT_REMOTE_SYMBOL="󰊢 " # nf-md-git
 # GIT_REMOTE_SYMBOL="" # nf-fa-unlink
-GIT_REMOTE_SYMBOL="󰜛" # nf-md-source_commit_local
+GIT_REMOTE_SYMBOL="" # nf-md-source_commit_local
 fi
 echo "$GIT_REMOTE_SYMBOL "
 """
@@ -553,7 +543,7 @@ format = "[ $output ](bg:color_sourcecontrol fg:color_foreground_dark)"
 
 [git_branch]
 # disabled = true
-symbol = "" # nf-oct-git_branch
+symbol = "" # nf-oct-git_branch
 # symbol = "󰊢 " # nf-md-git
 style = "bg:color_sourcecontrol fg:color_foreground_dark"
 # always_show_remote = true
@@ -561,7 +551,7 @@ style = "bg:color_sourcecontrol fg:color_foreground_dark"
 # truncation_symbol = "" # default = "…"
 # only_attached = true
 # ignore_branches = ["main", "master"]
-format = "[$symbol$branch(:$remote_name) ]($style)"
+format = "[$symbol $branch(:$remote_name) ]($style)"
 ## other variables:
 ##   remote_branch = The name of the branch tracked on remote_name
 
@@ -581,17 +571,17 @@ style = "bg:color_git_status fg:color_foreground_light"
 staged = " ${count}" # nf-fa-check
 # modified = "  ${count}" # nf-fa-edit
 modified = "  ${count}" # nf-fa-pencil
-renamed = "󰗧${count}" # nf-md-cursor_text
+renamed = " 󰗧 ${count}" # nf-md-cursor_text
 untracked = " ? ${count}" # nf-fa-question
 deleted = "  ${count}" # nf-fa-remove
-conflicted = "${count}" # nf-fa-flag
+conflicted = "  ${count}" # nf-fa-flag
 # stashed = "  ${count}" # nf-fa-bank
 stashed = "  ${count}" # nf-fa-inbox
 up_to_date = ""
 ahead = "󰞙 ${count}" # nf-md-arrow_expand_up
 behind = "󰞖 ${count}" # nf-md-arrow_expand_down
-diverged = "󰡏 ${ahead_count} ${behind_count}" # nf-md-arrow_expand_vertical
-# diverged = "󰯎 ${ahead_count} ${behind_count}" # nf-md-swap_vertical_bold
+# diverged = "󰡏 ${ahead_count} ${behind_count}" # nf-md-arrow_expand_vertical
+diverged = "󰯎 ${ahead_count} ${behind_count}" # nf-md-swap_vertical_bold
 # ignore_submodules = true
 format = "[($staged$modified$renamed$untracked$deleted$conflicted$stashed$ahead_behind )]($style)"
 
@@ -619,13 +609,13 @@ format = '([󰺪 ](bg:color_git_metrics fg:color_git_metrics_added)[$added]($add
 ###  Toolchain version section
 [bun]
 # disabled = true
-symbol = " " # nf-oct-smiley
+symbol = "  " # nf-oct-smiley
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [c]
 # disabled = true
-symbol = " " # nf-custom-c
+symbol = "  " # nf-custom-c
 # symbol = "󰙱 " # nf-md-language_c
 # symbol = "C " # plain character
 style = "bg:color_toolchain fg:color_toolchain_text"
@@ -633,79 +623,79 @@ format = "[$symbol($version(-$name))]($style)"
 
 [cobol]
 # disabled = true
-symbol = " " # nf-fa-cog
+symbol = "  " # nf-fa-cog
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [crystal]
 # disabled = true
-symbol = " " # nf-custom-crystal
+symbol = "  " # nf-custom-crystal
 # symbol = "󰬯" # nf-md-crystal_ball
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [daml]
 # disabled = true
-symbol = "𝜦 " # Capital lambda - U+1D726
+symbol = " 𝜦 " # Capital lambda - U+1D726
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [dart]
 # disabled = true
-symbol = " " # nf-dev-dart
+symbol = "  " # nf-dev-dart
 # symbol = " " # nf-seti-dart
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [deno]
 # disabled = true
-symbol = " " # nf-dev-javascript_badge
+symbol = "  " # nf-dev-javascript_badge
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [dotnet]
 # disabled = true
-symbol = " " # nf-dev-dotnet
+symbol = "  " # nf-dev-dotnet
 style = "bg:color_toolchain fg:color_toolchain_text"
 heuristic = true
 format = "[$symbol($version)( 󰓾 $tfm)]($style)" # 󰓾 = nf-md-target
 
 [elixir]
 # disabled = true
-symbol = " " # nf-custom-elixir
+symbol = "  " # nf-custom-elixir
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = '[$symbol($version) (\(OTP:$otp_version\))]($style)'
 
 [elm]
 # disabled = true
-symbol = " " # nf-custom-elm
+symbol = "  " # nf-custom-elm
 # symbol = " " # nf-fae-tree
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [erlang]
 # disabled = true
-symbol = " " # nf-dev-erlang
+symbol = "  " # nf-dev-erlang
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [fennel]
 # disabled = false
-symbol = "󰬍 " # nf-md-alpha_f_box
+symbol = " 󰬍 " # nf-md-alpha_f_box
 # symbol = " " # nf-fa-smile_o
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [golang]
 # disabled = true
-symbol = " " # nf-seti-go
+symbol = "  " # nf-seti-go
 # symbol = "󰟓 " # nf-md-language_go
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [haskell]
 # disabled = true
-symbol = " " # nf-seti-haskell
+symbol = "  " # nf-seti-haskell
 # symbol = "[λ](bold bg:color_toolchain fg:color_toolchain_text)" # Small greek lambda - U+03BB
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
@@ -715,65 +705,65 @@ format = "[$symbol($version)]($style)"
 
 [haxe]
 # disabled = true
-symbol = " " # nf-seti-haxe
+symbol = "  " # nf-seti-haxe
 # symbol = "󰐴 " # nf-md-quadcopter
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [java]
 # disabled = true
-symbol = " " # nf-fae-java
+symbol = "  " # nf-fae-java
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [julia]
 # disabled = true
-symbol = " " # nf-seti-julia
+symbol = "  " # nf-seti-julia
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [kotlin]
 # disabled = true
-symbol = "󱈙 " # nf-md-language_kotlin
+symbol = " 󱈙 " # nf-md-language_kotlin
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [lua]
 # disabled = true
-symbol = "󰢱 " # nf-md-language_lua
+symbol = " 󰢱 " # nf-md-language_lua
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [nim]
 # disabled = true
-symbol = "" # nf-seti-nim
+symbol = "  " # nf-seti-nim
 # symbol = " " # nf-fae-crown
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [nodejs]
 # disabled = true
-symbol = "󰎙 " # nf-md-nodejs
+symbol = " 󰎙 " # nf-md-nodejs
 style = "bg:color_toolchain fg:color_toolchain_text"
 not_capable_style = "bg:color_toolchain fg:color_foreground_dark"
 format = "[$symbol($version)]($style)"
 
 [ocaml]
 # disabled = true
-symbol = " " # nf-seti-ocaml
+symbol = "  " # nf-seti-ocaml
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = '[$symbol($version)( \($switch_indicator$switch_name\))]($style)'
 
 [perl]
 # disabled = true
-symbol = "" # nf-seti-perl
+symbol = "  " # nf-seti-perl
 # symbol = " " # nf-dev-perl
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [php]
 # disabled = true
-symbol = " " # nf-dev-php
+symbol = "  " # nf-dev-php
 # symbol = "󰌟 " # nf-md-language_php
 # symbol = "" # nf-seti-php
 style = "bg:color_toolchain fg:color_toolchain_text"
@@ -781,14 +771,14 @@ format = "[$symbol($version)]($style)"
 
 [purescript]
 # disabled = true
-symbol = "" # nf-custom-purescript
+symbol = "  " # nf-custom-purescript
 # symbol = "⇔ " # left right double arrow - U+21D4
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [python]
 # disabled = true
-symbol = "󰌠 " # nf-md-language_python
+symbol = " 󰌠 " # nf-md-language_python
 # symbol = " " # nf-fae-python
 style = "bg:color_toolchain fg:color_toolchain_text"
 python_binary = [ "python3", "python", "python2" ]
@@ -798,25 +788,25 @@ format = '[${symbol}(${pyenv_prefix}${version})(\($virtualenv\))]($style)'
 
 [raku]
 # disabled = true
-symbol = " " # nf-fae-butterfly
+symbol = "  " # nf-fae-butterfly
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)(-$vm_version)]($style)"
 
 [red]
 # disabled = true
-symbol = "󱥒 " # nf-md-pyramid
+symbol = " 󱥒 " # nf-md-pyramid
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [rlang]
 # disabled = true
-symbol = "󰟔 " # nf-md-language_r
+symbol = " 󰟔 " # nf-md-language_r
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [ruby]
 # disabled = true
-symbol = "󰴭 " # nf-md-language_ruby
+symbol = " 󰴭 " # nf-md-language_ruby
 # symbol = " " # nf-fae-ruby
 # symbol = " " # nf-oct-ruby
 style = "bg:color_toolchain fg:color_toolchain_text"
@@ -824,32 +814,32 @@ format = "[$symbol($version)]($style)"
 
 [rust]
 # disabled = true
-symbol = "󱘗 " # nf-md-language_rust
+symbol = " 󱘗 " # nf-md-language_rust
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [scala]
 # disabled = true
-symbol = " " # nf-dev-scala
+symbol = "  " # nf-dev-scala
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [swift]
 # disabled = true
-symbol = "󰛥 " # nf-md-language_swift
+symbol = " 󰛥 " # nf-md-language_swift
 # symbol = "" # nf-seti-swift
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [vlang]
 # disabled = true
-symbol = "󱑹 " # nf-md-cosine_wave
+symbol = " 󱑹 " # nf-md-cosine_wave
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
 
 [zig]
 # disabled = true
-symbol = "" # nf-seti-zig
+symbol = "  " # nf-seti-zig
 # symbol = '\[Z\] '
 style = "bg:color_toolchain fg:color_toolchain_text"
 format = "[$symbol($version)]($style)"
@@ -858,20 +848,20 @@ format = "[$symbol($version)]($style)"
 ###  Package section
 [package]
 # disabled = true
-symbol = " " # nf-oct-package
+symbol = "  " # nf-oct-package
 style = "bg:color_package fg:color_package_text"
 display_private = true
 format = "[$symbol($version)]($style)"
 
 [buf]
 # disabled = true
-symbol = " " # nf-fa-barcode
+symbol = "  " # nf-fa-barcode
 style = "bg:color_package fg:color_package_text"
 format = "[$symbol($version)]($style)"
 
 [cmake]
 # disabled = true
-symbol = "󰔷 " # nf-md-triangle_outline
+symbol = " 󰔷 " # nf-md-triangle_outline
 # symbol = "󰔶 " # nf-md-triangle
 style = "bg:color_package fg:color_package_text"
 format = "[$symbol($version)]($style)"
@@ -879,7 +869,7 @@ format = "[$symbol($version)]($style)"
 [conda]
 # disabled = true
 # symbol = " " # nf-fa-circle_o
-symbol = "🅒 " # Negative Circled Latin Capital Letter C
+symbol = " 🅒 " # Negative Circled Latin Capital Letter C
 style = "bg:color_package fg:color_package_text"
 # ignore_base = false
 # truncation_length = 0 # no truncation
@@ -887,7 +877,7 @@ format = "[$symbol$environment]($style)"
 
 [gradle]
 # disabled = true
-symbol = " " # nf-seti-gradle
+symbol = "  " # nf-seti-gradle
 # symbol = "󰟆 " # nf-md-elephant
 style = "bg:color_package fg:color_package_text"
 # recursive = true
@@ -895,13 +885,13 @@ format = "[$symbol($version)]($style)"
 
 [helm]
 # disabled = true
-symbol = "󰠳 " # nf-md-ship_wheel
+symbol = " 󰠳 " # nf-md-ship_wheel
 style = "bg:color_package fg:color_package_text"
 format = "[$symbol($version)]($style)"
 
 [meson]
 # disabled = true
-symbol = "󰔶 " # nf-md-triangle
+symbol = " 󰔶 " # nf-md-triangle
 # symbol = "▲" # black up-pointing triangle
 style = "bg:color_package fg:color_package_text"
 # truncation_length = 20 # default = 4294967295
@@ -910,7 +900,7 @@ format = "[$symbol$project]($style)"
 
 [spack]
 # disabled = true
-symbol = "󰦻 " # nf-md-arrow_decision
+symbol = " 󰦻 " # nf-md-arrow_decision
 style = "bg:color_package fg:color_package_text"
 # truncation_length = 0 # default = 1
 format = '[$symbol$environment]($style)'
