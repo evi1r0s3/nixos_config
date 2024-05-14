@@ -98,6 +98,7 @@ require('lualine').setup {
     component_separators = '',
     section_separators = { left = '', right = '' },
     disabled_filetypes = { "dashboard", "neo-tree" },
+    globalstatus = false,
   },
   sections = process_sections {
     lualine_a = { 'mode' },

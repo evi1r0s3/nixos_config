@@ -41,7 +41,7 @@ require('dashboard').setup{
     footer = { '','Be obsessed, or be average.','','帝力于我何有哉; 不疯魔，不成活。' },
   },
   hide = {
-    statusline = false,    -- hide statusline default is true
+    statusline = true,    -- hide statusline default is true
     tabline = true,       -- hide the tabline
     winbar = true,        -- hide winbar
   },

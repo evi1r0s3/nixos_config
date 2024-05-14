@@ -52,12 +52,6 @@ vim.keymap.set(
 vim.keymap.set(
   "n",
   "<Space>n",
-  "<CMD>Neotree toggle reveal_force_cwd position=left<CR>",
-  { noremap = true, silent = true, desc = "[Navigation] 左侧打开文件树" }
-)
-vim.keymap.set(
-  "n",
-  "<Space>N",
   "<CMD>Neotree toggle dir=/ position=current<CR>",
   { noremap = true, silent = true, desc = "[Navigation] 打开文件浏览器" }
 )

@@ -1,14 +1,17 @@
 local is_picking_focus = require("cokeline/mappings").is_picking_focus
 local is_picking_close = require("cokeline/mappings").is_picking_close
 
-local red = vim.g.terminal_color_1
-local yellow = vim.g.terminal_color_4
-local space = { text = " " }
-local high = "#63f2f1"
-local light = "#f3f3f3"
-local text = "#f3f3f3"
-local dark = "#2d2b40"
-local grey = "#1d1b2f"
+local black = "#282A36"
+local grey = "#44475A"
+local white = "#F8F8F2"
+local lightblue = "#6272A4"
+local cyan = "#8BE9FD"
+local green = "#50FA7B"
+local orange = "#FFB86C"
+local pink = "#FF79C6"
+local purple = "#BD93F9"
+local red = "#FF5555"
+local yellow = "#F1FA8C"
 
 -- 这一段是为了解决svelte的文件名显示问题
 local function get_path_parts(path)
@@ -65,9 +68,10 @@ require("cokeline").setup(
       filetype = 'neo-tree',
       components = {
         {
-          text = "  NeoVIM",
-          fg = dark,
-          bg = high,
+          --   󰞰 󰦈   󰚄  󱋱 󱤓 󱘊 󰔌 󰘨 󰫎
+          text = " EVANGELION 󱤓󱤓 󰫍󰫍󰫍󰫍󰫍󰫍 ",
+          fg = red,
+          bg = grey,
           style = 'bold'
         }
       }
@@ -75,32 +79,32 @@ require("cokeline").setup(
     default_hl = {
       fg = function(buffer)
         if buffer.is_focused then
-          return dark
+          return black
         end
-        return text
+        return white
       end,
       bg = function(buffer)
         if buffer.is_focused then
-          return high
+          return green
         end
-        return grey
+        return lightblue
       end
     },
     components = {
       {
-        text = function(buffer)
-          if buffer.index ~= 1 then
-            return ""
-          end
-          return ""
-        end,
+        text = "",
         bg = function(buffer)
           if buffer.is_focused then
-            return high
+            return green
+          end
+          return lightblue
+        end,
+        fg = function(buffer)
+          if buffer.index ~= 1 then
+            return black
           end
           return grey
         end,
-        fg = dark
       },
       {
         text = function(buffer) return buffer.index .. ' ' end,
@@ -122,9 +126,9 @@ require("cokeline").setup(
           end
 
           if buffer.is_focused then
-            return dark
+            return black
           else
-            return light
+            return grey
           end
         end,
         style = function(_)
@@ -139,25 +143,23 @@ require("cokeline").setup(
            return buffer.unique_prefix .. buffer.filename .. " "
           end
         end,
-        style = function(buffer)
-          return buffer.is_focused and "bold" or nil
-        end
+        style = 'bold'
       },
       {
-        text = '󰅙',
+        text = '',
         on_click = function(_, _, _, _, buffer)
         buffer:delete()
         end
       },
       {
-        text = "",
+        text = "",
         fg = function(buffer)
           if buffer.is_focused then
-            return high
+            return green
           end
-          return grey
+          return lightblue
         end,
-        bg = dark
+        bg = black
       }
     }
   }

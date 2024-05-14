@@ -126,4 +126,14 @@ return {
   },
   -- direnv https://github.com/direnv/direnv.vim
   { "direnv/direnv.vim", },
+  -- mason https://github.com/williamboman/mason.nvim
+  {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("mason").setup()
+      require("mason-lspconfig").setup()
+    end,
+  },
  }
