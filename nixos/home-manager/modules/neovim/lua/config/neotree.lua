@@ -19,7 +19,7 @@ require("neo-tree").setup({
     winbar = false,
     statusline = true,
     separator = { left = " ", right= " " },
-    show_separator_on_edge = true,
+    show_separator_on_edge = false,
     --                       true  : |/    a    \/    b    \/    c    \|
     --                       false : |     a    \/    b    \/    c     |
     sources = {

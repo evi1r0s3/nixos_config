@@ -132,8 +132,26 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
     config = function()
-      require("mason").setup()
-      require("mason-lspconfig").setup()
+      require('config.mason')
     end,
   },
- }
+  -- Auto-completion engine
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "lspkind.nvim",
+      "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion
+      "hrsh7th/cmp-buffer", -- buffer auto-completion
+      "hrsh7th/cmp-path", -- path auto-completion
+      "hrsh7th/cmp-cmdline", -- cmdline auto-completion
+    },
+    config = function()
+      require("config.nvim-cmp")
+    end,
+  },
+  {
+    -- Code snippet engine
+    "L3MON4D3/LuaSnip",
+
+  },
+}
