@@ -3,10 +3,10 @@
   :monitor 0 ;;显示器
   :geometry (geometry :x "0%"
     :y "5px"
-    :width "100%"
+    :width "90%"
     :height "30px"
   :anchor "top center") ;;锚点
-  :stacking "bg" ;;层级
+  :stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
   :exclusive true ;;合成器是否要预留空间，以及预留的方法
   :focusable false
   (bar)
@@ -204,7 +204,9 @@
   (mic-window)
 )
 ;;━━━ [widget] battery ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-(defpoll battery :interval "2s" "scripts/battery.sh")
+(defpoll battery :interval "2s"
+                 :initial "{\"icon\": \"?\", \"charging\": \"?\", \"percentage\": \"?\", \"note\": \"正在初始化\"}"
+                 "scripts/battery.sh")
 
 (defwidget battery []
   (eventbox :onhover "eww open battery-window"
@@ -248,7 +250,9 @@
   (battery-window)
 )
 ;;━━━ [widget] network ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-(defpoll network :interval "2s" "scripts/network.sh")
+(defpoll network :interval "2s"
+  :initial "?"
+  "scripts/network.sh")
 (defvar ipaddr "{\"wanip\":\"\",\"vendor\":\"\",\"addr\":\"\",\"lanip\":\"\"}")
 
 (defwidget network []

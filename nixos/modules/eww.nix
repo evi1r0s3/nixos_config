@@ -6,4 +6,5 @@
     brightnessctl
     upower
   ];
+  services.upower.enable = true;
 }
