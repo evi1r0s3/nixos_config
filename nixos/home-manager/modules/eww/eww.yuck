@@ -3,7 +3,7 @@
   :monitor 0 ;;显示器
   :geometry (geometry :x "0%"
     :y "5px"
-    :width "90%"
+    :width "99%"
     :height "30px"
   :anchor "top center") ;;锚点
   :stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
