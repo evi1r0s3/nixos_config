@@ -5,7 +5,7 @@
     # 默认分支设置是unstable
     nixpkgs.url = "github:Nixos/nixpkgs/nixos-unstable";
     # 然后将stable的分支设置为一个参数，用来回退个别软件包版本为使用stable版
-    nixpkgs-stable.url = "github:Nixos/nixpkgs/nixos-23.11";
+    nixpkgs-stable.url = "github:Nixos/nixpkgs/nixos-24.05";
     
     # homemanager 使用unstable,这样保证在配置一些软件时和pkgs用的分支一致
     home-manager = {

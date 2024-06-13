@@ -97,6 +97,7 @@
   
   # Flatpak
   services.flatpak.enable = true;
+  xdg.portal.enable = true;
   
   # Fwupd
   services.fwupd.enable = true;
