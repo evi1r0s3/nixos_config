@@ -19,6 +19,7 @@
     ./modules/develop
     ./modules/foot
     ./modules/shell
+    ./modules/virt_manager
   ];
 
   home.username = "evi1_f4iry";
@@ -29,6 +30,7 @@
     rustscan
     socat
     # warp-terminal
+    google-chrome
   ];
 
   # wayland.windowManager.hyprland.enable = true;

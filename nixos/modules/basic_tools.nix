@@ -21,5 +21,6 @@
     kitty
     foot
     warp-terminal
+    zig
   ];
 }

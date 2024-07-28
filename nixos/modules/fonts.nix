@@ -5,7 +5,7 @@
       nerdfonts
       vistafonts-chs
       unifont
-      emojione
+      # emojione #
     ];
     fontDir.enable = true;
     fontconfig.enable = true;

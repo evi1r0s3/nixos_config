@@ -57,7 +57,7 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true; # https://github.com/NixOS/nixpkgs/blob/3eeff54780a1a8c73c82ca51987962b62bd4219e/nixos/doc/manual/release-notes/rl-2411.section.md#sound-options-removal-sec-release-2411-migration-sound 删除
   hardware.pulseaudio.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).

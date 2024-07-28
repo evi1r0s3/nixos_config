@@ -65,6 +65,9 @@
             ./modules/swaylock_effects.nix
             ./modules/zsh.nix
             ./modules/emacs.nix
+            ./modules/virt_manager.nix
+            # ./modules/wine.nix
+            # ./modules/vmware.nix
         ];
       };
     };
