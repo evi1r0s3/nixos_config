@@ -12,6 +12,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    binary-ninja.url = "github:jchv/nix-binary-ninja";
   };
 
   outputs = inputs@{ self, nixpkgs-stable, nixpkgs, home-manager, ... }: 
@@ -37,6 +39,7 @@
 	      specialArgs = {
             inherit pkgs-stable;
             inherit pkgs-unstable;
+            inherit inputs;
 	      };
           # 模块
 	      modules = [
@@ -66,6 +69,8 @@
             ./modules/zsh.nix
             ./modules/emacs.nix
             ./modules/virt_manager.nix
+            ./modules/offsec_tools.nix
+            # ./modules/binary_ninja.nix
             # ./modules/wine.nix
             # ./modules/vmware.nix
         ];

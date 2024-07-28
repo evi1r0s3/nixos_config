@@ -2,18 +2,16 @@
 {
   environment.systemPackages = with pkgs-unstable; [ 
     nmap
-    ncat
-    nping
-    metasploit-framework
+    rustscan
+    socat
+    metasploit
     wireshark
     sqlmap
     hashcat
-    hydra
     dirb
     gobuster
-    hping3
+    hping
     aircrack-ng
-    airgraph-ng
     netdiscover
     john
     netcat

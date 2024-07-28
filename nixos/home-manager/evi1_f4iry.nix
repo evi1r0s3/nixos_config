@@ -26,11 +26,9 @@
   home.homeDirectory = "/home/evi1_f4iry";
   home.packages = with pkgs-unstable;[
     microsoft-edge
-    nmap
-    rustscan
-    socat
     # warp-terminal
     google-chrome
+    obsidian
   ];
 
   # wayland.windowManager.hyprland.enable = true;
