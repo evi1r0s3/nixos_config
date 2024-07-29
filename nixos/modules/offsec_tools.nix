@@ -5,7 +5,7 @@
     rustscan
     socat
     metasploit
-    wireshark
+    #wireshark
     sqlmap
     hashcat
     dirb

@@ -10,6 +10,10 @@
     wl-clipboard
     cliphist
     tofi
+    grim
+    swappy
+    wf-recorder
+    slurp
   ];
   
   programs.hyprland = {

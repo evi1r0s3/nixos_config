@@ -70,6 +70,8 @@
             ./modules/emacs.nix
             ./modules/virt_manager.nix
             ./modules/offsec_tools.nix
+            ./modules/vscode.nix
+            ./modules/wireshark.nix
             # ./modules/binary_ninja.nix
             # ./modules/wine.nix
             # ./modules/vmware.nix
