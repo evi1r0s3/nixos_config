@@ -1,26 +1,27 @@
 { pkgs-unstable, ... }:
 {
   environment.systemPackages = with pkgs-unstable; [
-  
     # support both 32- and 64-bit applications
-    wineWowPackages.stable
-
+    # wineWowPackages.stable
+    
     # support 32-bit only
-    wine
+    # wine
 
     # support 64-bit only
-    (wine.override { wineBuild = "wine64"; })
+    # (wine.override { wineBuild = "wine64"; })
 
     # support 64-bit only
-    wine64
+    # wine64
 
     # wine-staging (version with experimental features)
-    wineWowPackages.staging
+    # wineWowPackages.staging
 
-    # winetricks (all versions)
+    # winetricks 配合wine安装字体，dll等 (all versions)
     winetricks
 
-    # native wayland support (unstable)
+    # 原生wayland支持的wine版本(unstable)
     wineWowPackages.waylandFull
+    # 支持ntlm_auth功能
+    samba
   ];
 }

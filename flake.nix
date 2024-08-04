@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based Nix development environment";
+  description = "A Nix-flake-based Nix config development environment";
 
   inputs.nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
 
@@ -23,6 +23,8 @@
             haskellPackages.dhall-nix
             nil
             nixfmt-classic
+            taplo
+            lua-language-server
           ];
         };
       });

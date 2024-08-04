@@ -92,7 +92,6 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
   nixpkgs.config.allowUnfree = true;
-  
   # List services that you want to enable:
   
   # Flatpak

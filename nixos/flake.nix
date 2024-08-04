@@ -29,6 +29,7 @@
     pkgs-unstable = import nixpkgs {
       system = systemSettings.system;
       config.allowUnfree = true;
+      #config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
     };
   in {
       nixosConfigurations = {
@@ -72,8 +73,13 @@
             ./modules/offsec_tools.nix
             ./modules/vscode.nix
             ./modules/wireshark.nix
+            # ./modules/onedrive.nix
             # ./modules/binary_ninja.nix
-            # ./modules/wine.nix
+            ./modules/wine.nix
+            ./modules/thunar.nix
+            ./modules/flipper_zero.nix
+            ./modules/offsec_SDR.nix
+            # ./modules/wechat-uos.nix
             # ./modules/vmware.nix
         ];
       };
