@@ -79,6 +79,7 @@
             ./modules/thunar.nix
             ./modules/flipper_zero.nix
             ./modules/offsec_SDR.nix
+            ./modules/telegram.nix
             # ./modules/wechat-uos.nix
             # ./modules/vmware.nix
         ];

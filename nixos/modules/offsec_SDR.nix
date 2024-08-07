@@ -5,4 +5,5 @@
     hackrf
   ];
   hardware.hackrf.enable = true;
+  users.users.evi1_f4iry.extraGroups = [ "plugdev" ];
 }
