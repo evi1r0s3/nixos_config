@@ -80,6 +80,10 @@
             ./modules/flipper_zero.nix
             ./modules/offsec_SDR.nix
             ./modules/telegram.nix
+            ./modules/udev_rules.nix
+            ./modules/android.nix
+            ./modules/docker.nix
+            ./modules/gdb.nix
             # ./modules/wechat-uos.nix
             # ./modules/vmware.nix
         ];
