@@ -21,5 +21,9 @@
     binwalk
     socat
     can-utils
+    cve-bin-tool
+    inetutils #telnent
+    netcat #nc
+    ghidra
   ];
 }
