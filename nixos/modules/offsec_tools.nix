@@ -25,5 +25,7 @@
     inetutils #telnent
     netcat #nc
     ghidra
+    thc-hydra
+    seclists
   ];
 }

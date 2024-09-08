@@ -14,6 +14,10 @@
     swappy
     wf-recorder
     slurp
+    # for nvidia
+    egl-wayland
+    mako
+    libnotify
   ];
   
   programs.hyprland = {

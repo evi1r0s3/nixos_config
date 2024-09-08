@@ -19,18 +19,19 @@ get_icon() {
     current="$(get_volume)"
     if [ "$(get_mute)" = "false" ]; then
         if [ "$current" -eq "0" ]; then
-            echo "󰖁"
+            echo "󰸈"
         elif [ "$current" -ge "0" ] && [ "$current" -le "25" ]; then
-            echo "󰖀"
+            echo "󰕿"
         elif [ "$current" -ge "25" ] && [ "$current" -le "50" ]; then
-            echo "󰕾"
+            echo "󰖀"
         elif [ "$current" -ge "50" ] && [ "$current" -le "75" ]; then
-            echo ""
+            echo "󰖀"
         elif [ "$current" -ge "75" ] && [ "$current" -le "100" ]; then
-            echo ""
+            echo "󰕾"
         fi
     else
-        echo "󰖁"
+        echo "󰸈"
+        #echo "󰖁"
     fi
 }
 get_mic_icon() {
