@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs-unstable; [
     eww
-    pamixer
+    #pamixer
     brightnessctl
     upower
   ];

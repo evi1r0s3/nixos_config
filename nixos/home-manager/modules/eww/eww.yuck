@@ -23,7 +23,6 @@
     )
     (box :halign "end"
        :space-evenly "false"
-      ;;:spacing "20"
       (brightness)
       (speaker)
       (mic)
@@ -51,7 +50,6 @@
   (box :orientation "vertical" ;;纵向
     (box :valign "start"
       "start"
-      
     )
     (box :valign "center"
       "center"
@@ -62,7 +60,6 @@
         (eventbox :onclick "eww close dashboard"
           :halign "end"
           :width 50
-
         )
       )
     )
@@ -126,8 +123,7 @@
 
 (defwidget speaker []
         (box :space-evenly "false" :orientation "h" :spacing "1"
-        (eventbox :onclick "pamixer --toggle-mute" :width 50 "${speaker-icon}")
-        ;;"${speaker-volume}"
+        (eventbox :onclick "scripts/volume.sh --set-mute" :width 50 "${speaker-icon}")
         (scale :min 0
                :max 101
                :width 100
@@ -135,7 +131,7 @@
                      :orientation "horizontal"
                      :flipped true
                      :value speaker-volume
-                     :onchange "pamixer --unmute && pamixer --set-volume $(echo {} | sed 's/[.].*$//')"
+                     :onchange "scripts/volume.sh --set-volume $(echo {} | sed 's/[.].*$//')"
               )
     )
  )
@@ -148,7 +144,7 @@
 
 (defwidget mic []
   (box :space-evenly "false" :orientation "h" :spacing "1"
-       (eventbox :onclick "pamixer --toggle-mute --default-source" :width 50 "${mic-icon}")
+       (eventbox :onclick "scripts/volume.sh --set-mic-mute" :width 50 "${mic-icon}")
        (scale :min 0
               :max 101
               :width 100
@@ -156,8 +152,7 @@
               :orientation "horizontal"
               :flipped true
               :value mic-volume
-              :onchange "pamixer --unmute --default-source && pamixer --default-source --set-volume \
-              $(echo {} | sed 's/[.].*$//')"
+              :onchange "scripts/volume.sh --set-mic-volume $(echo {} | sed 's/[.].*$//')"
       )
   )
 )
@@ -167,7 +162,6 @@
                  "scripts/battery.sh")
 
 (defwidget battery []
-  ;;(eventbox :onhover "eww close network-window & eww open battery-window"
   (eventbox :onhover "notify-send -u normal \"电池状态\" \"当前电量：${battery.percentage}%\\n充电状态：${battery.charging}\\n剩余时间：${battery.note}\""
     :width 50
     "${battery.icon}"
@@ -219,16 +213,12 @@
 
 (defwidget network []
   (eventbox :onhover "eww close battery-window & eww open network-window && scripts/ipaddress.sh &" ;; 因为获取ip地址需要一定资源，所以只在悬停时获取
-;;    :onhoverlost "eww close network-window"
     :onclick "hyprctl dispatch exec '[center]' 'kitty -T \"nmtui\" nmtui' "
     :width 50
     "${network}"
   )
 )
 (defwidget network-window []
-  ;;(eventbox 
-    ;;:onhoverlost "eww close network-window"
-    ;;:onhover "eww open network-window"
     (box :orientation "vertical"
       :space-evenly false
       (box :space-evenly false
@@ -258,6 +248,9 @@
   ;;)
 )
 (defwindow network-window
+  ;;(eventbox 
+    ;;:onhoverlost "eww close network-window"
+    ;;:onhover "eww open network-window"
   :monitor 0
   :geometry (geometry :height "100px"
     :width "100px"

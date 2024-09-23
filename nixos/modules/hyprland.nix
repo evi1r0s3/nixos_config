@@ -18,6 +18,7 @@
     egl-wayland
     mako
     libnotify
+    easyeffects
   ];
   
   programs.hyprland = {
