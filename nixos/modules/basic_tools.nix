@@ -22,5 +22,7 @@
     foot
     warp-terminal
     zig
+    linux-wifi-hotspot
+    iw
   ];
 }

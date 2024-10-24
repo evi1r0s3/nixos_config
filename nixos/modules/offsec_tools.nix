@@ -28,4 +28,7 @@
     thc-hydra
     seclists
   ];
+  nixpkgs.config.permittedInsecurePackages = [
+    "segger-jlink-qt4-796s"
+  ];
 }

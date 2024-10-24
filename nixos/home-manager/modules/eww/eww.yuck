@@ -6,16 +6,17 @@
     :width "100%"
     :height "40px"
   :anchor "top center") ;;锚点
-  :stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
+  ;;:stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
   :exclusive true ;;合成器是否要预留空间，以及预留的方法
   :focusable false
+  :windowtype "dock"
   (bar)
 )
 ;;━━━ [super widget] bar ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (defwidget bar []
   (box :orientation "horizontal" ;;横向
     (eventbox :halign "start"
-      :onclick "eww open dashboard"
+      ;; :onclick "eww open dashboard"
       " EVANGELION 󱤓󱤓 󰫍󰫍󰫍󰫍󰫍󰫍 "
     )
     (box :halign "center"
@@ -212,7 +213,8 @@
 (defvar ipaddr "{\"wanip\":\"\",\"vendor\":\"\",\"addr\":\"\",\"lanip\":\"\"}")
 
 (defwidget network []
-  (eventbox :onhover "eww close battery-window & eww open network-window && scripts/ipaddress.sh &" ;; 因为获取ip地址需要一定资源，所以只在悬停时获取
+  ;;(eventbox :onhover "eww close battery-window & eww open network-window && scripts/ipaddress.sh &" ;; 因为获取ip地址需要一定资源，所以只在悬停时获取
+  (eventbox :onhover "scripts/ipaddress.sh && notify-send -u normal \"网络状态\" \"出口地址：${ipaddr.wanip}\\n物理地址:${ipaddr.addr} @ ${ipaddr.vendor}\\n内网地址：${ipaddr.lanip}\""
     :onclick "hyprctl dispatch exec '[center]' 'kitty -T \"nmtui\" nmtui' "
     :width 50
     "${network}"

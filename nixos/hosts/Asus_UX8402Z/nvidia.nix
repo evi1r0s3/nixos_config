@@ -62,4 +62,5 @@
 
   # intel 这个试过如果启用的话是会无法正常进入图形界面 
   # boot.kernelParams = [ "module_blacklist=i915" ];
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" "module_blacklist=i915" ];
 }

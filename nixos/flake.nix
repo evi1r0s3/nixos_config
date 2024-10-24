@@ -85,6 +85,8 @@
             ./modules/docker.nix
             ./modules/gdb.nix
             ./modules/pipewire.nix
+            ./modules/singbox.nix
+            # ./modules/waydroid.nix
             # ./modules/wechat-uos.nix
             # ./modules/vmware.nix
         ];
