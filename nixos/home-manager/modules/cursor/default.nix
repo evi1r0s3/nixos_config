@@ -5,7 +5,7 @@
     x11.enable = true;
     package = pkgs-unstable.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
-    size = 42;
+    size = 24;
   };
   gtk.enable = true;
 }

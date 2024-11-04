@@ -73,9 +73,8 @@
             ./modules/offsec_tools.nix
             ./modules/vscode.nix
             ./modules/wireshark.nix
-            # ./modules/onedrive.nix
+            ./modules/onedrive.nix
             # ./modules/binary_ninja.nix
-            ./modules/wine.nix
             ./modules/thunar.nix
             ./modules/flipper_zero.nix
             ./modules/offsec_SDR.nix
@@ -85,7 +84,8 @@
             ./modules/docker.nix
             ./modules/gdb.nix
             ./modules/pipewire.nix
-            ./modules/singbox.nix
+            # ./modules/singbox.nix
+            ./modules/wine.nix
             # ./modules/waydroid.nix
             # ./modules/wechat-uos.nix
             # ./modules/vmware.nix

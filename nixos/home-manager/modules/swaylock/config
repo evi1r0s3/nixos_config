@@ -5,12 +5,16 @@ clock
 #screenshots
 
 # 指示圈半径
-indicator-radius=150
+#indicator-radius=150
+indicator-radius=75
 # 指示器厚度
-indicator-thickness=5
+#indicator-thickness=5
+indicator-thickness=3
 # 指示器位置
-indicator-x-position=2650
-indicator-y-position=1600
+#indicator-x-position=2650
+#indicator-y-position=1600
+indicator-x-position=1325
+indicator-y-position=800
 
 # theme
 # image=~/.config/swaylock/dracula-wallpaper.svg

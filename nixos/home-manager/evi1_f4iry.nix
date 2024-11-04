@@ -20,6 +20,7 @@
     ./modules/foot
     ./modules/shell
     ./modules/virt_manager
+    ./modules/firefox
   ];
 
   home.username = "evi1_f4iry";
@@ -29,6 +30,7 @@
     # warp-terminal
     google-chrome
     obsidian
+    # firefox
   ];
 
   # wayland.windowManager.hyprland.enable = true;
