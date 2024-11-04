@@ -1,5 +1,4 @@
-{ config, pkgs-unstable, ... }:
-
+{ config, pkgs-unstable, inputs, ... }:
 {
   imports = [
     ./modules/hyprland
@@ -26,11 +25,7 @@
   home.username = "evi1_f4iry";
   home.homeDirectory = "/home/evi1_f4iry";
   home.packages = with pkgs-unstable;[
-    microsoft-edge
-    # warp-terminal
-    google-chrome
     obsidian
-    # firefox
   ];
 
   # wayland.windowManager.hyprland.enable = true;
