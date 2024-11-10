@@ -14,7 +14,7 @@
 )
 ;;━━━ [super widget] bar ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (defwidget bar []
-  (box :orientation "horizontal" ;;横向
+  (centerbox :orientation "horizontal" ;;横向
     (eventbox :halign "start"
       ;; :onclick "eww open dashboard"
       " EVANGELION 󱤓󱤓 󰫍󰫍󰫍󰫍󰫍󰫍 "
@@ -23,7 +23,8 @@
       (time)
     )
     (box :halign "end"
-       :space-evenly "false"
+         :space-evenly false
+         :spacing "0"
       (brightness)
       (speaker)
       (mic)
@@ -120,9 +121,9 @@
 ;;━━━ [widget] tray ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 (defwidget tray []
   (systray :orientation "h"
-           :spacing "0"
-           :space-evenly "false"
-           ;;:icon-size 10
+           :spacing "1"
+           :space-evenly "true"
+           :icon-size 15
            :prepend-new "true")
 )
 ;;━━━ [widget] Speaker Volume ━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -132,12 +133,12 @@
 (defpoll speaker-icon :interval "1s" "scripts/volume.sh --icon")
 
 (defwidget speaker []
-        (box :space-evenly "false" :orientation "h" :spacing "1"
-        (eventbox :onclick "scripts/volume.sh --set-mute" :width 50 "${speaker-icon}")
+        (box :space-evenly "false" :orientation "h" :spacing "0"
+        (eventbox :onclick "scripts/volume.sh --set-mute" "${speaker-icon} ")
         (scale :min 0
                :max 101
-               :width 100
-               :height 10
+               :width 80
+               ;;:height 5
                      :orientation "horizontal"
                      :flipped true
                      :value speaker-volume
@@ -153,12 +154,12 @@
 (defpoll mic-icon :interval "1s" "scripts/volume.sh --mic-icon")
 
 (defwidget mic []
-  (box :space-evenly "false" :orientation "h" :spacing "1"
-       (eventbox :onclick "scripts/volume.sh --set-mic-mute" :width 50 "${mic-icon}")
+  (box :space-evenly "false" :orientation "h" :spacing "0"
+       (eventbox :onclick "scripts/volume.sh --set-mic-mute" "${mic-icon} ")
        (scale :min 0
               :max 101
-              :width 100
-              :height 10
+              :width 80
+              ;;:height 5
               :orientation "horizontal"
               :flipped true
               :value mic-volume
@@ -173,8 +174,8 @@
 
 (defwidget battery []
   (eventbox :onhover "notify-send -u normal \"电池状态\" \"当前电量：${battery.percentage}%\\n充电状态：${battery.charging}\\n剩余时间：${battery.note}\""
-    :width 50
-    "${battery.icon}"
+    ;;:width 50
+    "${battery.icon} "
   )
 )
 
@@ -225,8 +226,8 @@
   ;;(eventbox :onhover "eww close battery-window & eww open network-window && scripts/ipaddress.sh &" ;; 因为获取ip地址需要一定资源，所以只在悬停时获取
   (eventbox :onhover "scripts/ipaddress.sh && notify-send -u normal \"网络状态\" \"出口地址：${ipaddr.wanip}\\n物理地址:${ipaddr.addr} @ ${ipaddr.vendor}\\n内网地址：${ipaddr.lanip}\""
     :onclick "hyprctl dispatch exec '[center]' 'kitty -T \"nmtui\" nmtui' "
-    :width 50
-    "${network}"
+    ;;:width 50
+    "${network} "
   )
 )
 (defwidget network-window []

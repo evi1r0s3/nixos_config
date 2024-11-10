@@ -20,7 +20,7 @@
     xz
     kitty
     foot
-    warp-terminal
+    #warp-terminal
     zig
     linux-wifi-hotspot
     iw

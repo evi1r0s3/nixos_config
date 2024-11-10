@@ -13,7 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    binary-ninja.url = "github:jchv/nix-binary-ninja";
+    # binary-ninja.url = "github:jchv/nix-binary-ninja";
 
     # firefox插件，密避免使用nur的简单方法，
     # 浏览https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json，查找插件名称。
@@ -79,7 +79,7 @@
             ./modules/offsec_tools.nix
             ./modules/vscode.nix
             ./modules/wireshark.nix
-            # ./modules/onedrive.nix
+            ./modules/onedrive.nix
             # ./modules/binary_ninja.nix
             ./modules/thunar.nix
             ./modules/flipper_zero.nix
@@ -93,7 +93,7 @@
             # ./modules/singbox.nix
             # ./modules/wine.nix
             # ./modules/waydroid.nix
-            # ./modules/wechat-uos.nix
+            ./modules/wechat-uos.nix
             # ./modules/vmware.nix
         ];
       };

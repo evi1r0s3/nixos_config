@@ -28,8 +28,6 @@
     obsidian
   ];
 
-  # wayland.windowManager.hyprland.enable = true;
-
   programs.git = {
     enable = true;
     userName = "evi1r0s3";

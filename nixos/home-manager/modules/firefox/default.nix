@@ -12,21 +12,21 @@
           # 语言
           "intl.locale.requested" = "zh-CN";
           # Updates
-          "app.update.auto" = false; # Do not auto-update
-          "app.update.service.enabled" = false; # Do not update on background
-          "app.update.silent" = false; # Alert if an update happens
-          "extensions.update.autoUpdateDefault" = false; # Do not auto-update by default
+          #"app.update.auto" = false; # Do not auto-update
+          #"app.update.service.enabled" = false; # Do not update on background
+          #"app.update.silent" = false; # Alert if an update happens
+          #"extensions.update.autoUpdateDefault" = false; # Do not auto-update by default
           # 插件
-          #extensions = with inputs.firefox-addons.packages.${pkgs-unstable.stdenv.system}; [
-          #  foxyproxy-standard
-          #  (immersive-translate.overrideAttrs (oldAttrs: { meta.unfree = false; })) # Dirty workaround since nixpkgs.config.allowUnfree does not work with firefox-addons flake
-          #  cookie-quick-manager
-          #  sidebery
-          #  user-agent-string-switcher
-          #  proton-pass
-          #  offline-qr-code-generator
-          #  privacy-badger
-          #];
+          extensions = with inputs.firefox-addons.packages.${pkgs-unstable.stdenv.system}; [
+            foxyproxy-standard
+            (immersive-translate.overrideAttrs (oldAttrs: { meta.unfree = false; })) # Dirty workaround since nixpkgs.config.allowUnfree does not work with firefox-addons flake
+            cookie-quick-manager
+            sidebery
+            user-agent-string-switcher
+            proton-pass
+            offline-qr-code-generator
+            privacy-badger
+          ];
         };
       };
     };
