@@ -19,6 +19,12 @@
     # 浏览https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json，查找插件名称。
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+
+    # wayland下有bug,只能用x11
+    #nur-wemeet = {
+    #  url = "github:linyinfeng/nur-packages";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
   };
 
   outputs = inputs@{ self, nixpkgs-stable, nixpkgs, home-manager, ... }: 
@@ -79,8 +85,6 @@
             ./modules/offsec_tools.nix
             ./modules/vscode.nix
             ./modules/wireshark.nix
-            ./modules/onedrive.nix
-            # ./modules/binary_ninja.nix
             ./modules/thunar.nix
             ./modules/flipper_zero.nix
             ./modules/offsec_SDR.nix
@@ -90,11 +94,8 @@
             ./modules/docker.nix
             ./modules/gdb.nix
             ./modules/pipewire.nix
-            # ./modules/singbox.nix
-            # ./modules/wine.nix
-            # ./modules/waydroid.nix
             ./modules/wechat-uos.nix
-            # ./modules/vmware.nix
+            ./modules/lutris.nix
         ];
       };
     };

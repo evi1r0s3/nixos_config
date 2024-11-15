@@ -24,5 +24,7 @@
     zig
     linux-wifi-hotspot
     iw
+    remnote
+    discord
   ];
 }

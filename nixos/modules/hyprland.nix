@@ -14,6 +14,7 @@
     swappy
     wf-recorder
     slurp
+    networkmanagerapplet
     # for nvidia
     egl-wayland
     mako

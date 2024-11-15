@@ -29,7 +29,7 @@
       (speaker)
       (mic)
       (battery)
-      (network)
+      ;;(network)
       (tray)
     )
   )
