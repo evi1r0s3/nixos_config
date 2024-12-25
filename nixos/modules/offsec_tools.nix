@@ -1,6 +1,7 @@
-{ pkgs-unstable, ... }:
+{ pkgs-unstable, pkgs-stable, ... }:
+
 {
-  environment.systemPackages = with pkgs-unstable; [ 
+  environment.systemPackages = with pkgs-stable; [ 
     nmap
     rustscan
     socat
@@ -31,4 +32,10 @@
   nixpkgs.config.permittedInsecurePackages = [
     "segger-jlink-qt4-796s"
   ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      1337
+      4444
+    ];
+  };
 }

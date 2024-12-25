@@ -15,6 +15,7 @@
     wf-recorder
     slurp
     networkmanagerapplet
+    playerctl
     # for nvidia
     egl-wayland
     mako

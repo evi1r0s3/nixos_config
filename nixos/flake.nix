@@ -73,9 +73,9 @@
             ./modules/garbage_collect.nix
             ./modules/tuigreet_hyprland.nix
             ./modules/hyprland.nix
-            ./modules/v2raya.nix
+            # ./modules/v2raya.nix
             ./modules/fcitx5.nix
-            ./modules/ranger.nix
+            # ./modules/ranger.nix
             ./modules/fonts.nix
             ./modules/eww.nix
             ./modules/swaylock_effects.nix
@@ -95,7 +95,9 @@
             ./modules/gdb.nix
             ./modules/pipewire.nix
             ./modules/wechat-uos.nix
-            ./modules/lutris.nix
+            ./modules/obsidian.nix
+            ./modules/singbox.nix
+            ./modules/onlyoffice.nix
         ];
       };
     };

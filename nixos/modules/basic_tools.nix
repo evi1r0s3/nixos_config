@@ -20,11 +20,15 @@
     xz
     kitty
     foot
-    #warp-terminal
+    # warp-terminal
     zig
     linux-wifi-hotspot
     iw
     remnote
-    discord
+    # discord
+    youtube-music
+    onlyoffice-bin
+    siyuan
+    yazi
   ];
 }

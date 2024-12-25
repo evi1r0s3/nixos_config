@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # Linux Kernel
@@ -13,6 +13,9 @@
     "video4linux"
     "acpi_rev_override=5"
     "security=selinux"
+  ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    rtl88xxau-aircrack
   ];
   # boot.kernelPatches = [ {
   #      name = "selinux-config";

@@ -1,8 +1,9 @@
 { pkgs-unstable, ... }:
 {
   environment.systemPackages = with pkgs-unstable; [
-    emacs
-
+    #emacs-gtk
+    emacs30-pgtk
+    nodejs
     # (emacsWithPackages (epkgs: with emacsPackages; [
     #    dashboard
     #    rainbow-delimiters

@@ -5,8 +5,8 @@
 ;;
 ;;; Code:
 
-(unless (>= emacs-major-version 29)
-  (error "ONLY EMACS v29+ IS SUPPORTED! 只支持EMACS v29+"))
+(unless (>= emacs-major-version 30)
+  (error "ONLY EMACS v30+ IS SUPPORTED! 只支持EMACS v30+，因为在配置插件时使用了30的vc关键字"))
 
 ;; 当发生错误时取消注释此行用于debug
 ;; 效果与 `emacs --init-debug' 一样

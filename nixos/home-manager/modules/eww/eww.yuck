@@ -2,11 +2,11 @@
 (defwindow bar
   :monitor 0 ;;显示器
   :geometry (geometry :x "0%"
-    :y "0px"
-    :width "100%"
+    :y "1px"
+    :width "99.9%"
     :height "10px"
   :anchor "top center") ;;锚点
-  ;;:stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
+  :stacking "fg" ;;层级，需要用fg,因为启动时hyprpaper换壁纸就会盖住bar
   :exclusive true ;;合成器是否要预留空间，以及预留的方法
   :focusable false
   :windowtype "dock"

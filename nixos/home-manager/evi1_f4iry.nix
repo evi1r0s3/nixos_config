@@ -22,9 +22,9 @@
 
   home.username = "evi1_f4iry";
   home.homeDirectory = "/home/evi1_f4iry";
-  home.packages = with pkgs-unstable;[
-    obsidian
-  ];
+#  home.packages = with pkgs-unstable;[
+#    obsidian
+#  ];
 
   programs.git = {
     enable = true;

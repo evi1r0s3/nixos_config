@@ -167,7 +167,7 @@
              ;; 圆角主题
              (setq centaur-tabs-style "bar")
              ;; 高度
-             (setq centaur-tabs-height 35)
+             (setq centaur-tabs-height 25)
              ;; 使用标签图标
              (setq centaur-tabs-set-icons t)
              ;; 显示新建标签按钮
@@ -191,7 +191,7 @@
              ;; (setq centaur-tabs-left-edge-margin nil)
              ;; 标签关闭按钮图标
              (setq centaur-tabs-close-button "󰅙")
-             (centaur-tabs-change-fonts "IntoneMono NFM" 120)
+             (centaur-tabs-change-fonts "IntoneMono NFM" 110)
              (centaur-tabs-mode t)
              :bind
              ;; `ctrl+pgup\pgdown'切换标签

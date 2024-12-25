@@ -5,6 +5,15 @@
 ;;
 ;;; Code:
 
+;;(set-face-attribute 'default nil :font "Maple Mono SC NF" :height 110)
+;;(set-face-attribute 'default nil :font "Maple Mono SC NF 11")
+
+(set-face-attribute 'default nil :font "Maple Mono SC NF 11")
+
+(dolist (charset '(han kana symbol cjk-misc bopomofo))
+  (set-fontset-font t charset "Maple Mono SC NF 11"))
+;; 以下这几个方法还是会在一些情况发生问题，所以，最后还是得用一个全等的字体，哎
+(when nil
 ;; 方法四
 ;; 我的方法，同样设置系数缩放，但不调整行距，而是通过修改行号字体预先渲染单行的高度，
 ;; 从而保证在中英混合字体时不会因为先输入英文再输入中文而发生行高变化，导致抖动
@@ -105,6 +114,8 @@
 
 ;; font/test-mono 测试出来的结果放在这里就好
 (add-hook 'after-init-hook (lambda () (font/set-mono "ComicShannsMono Nerd Font Mono" "Microsoft Yahei" 26 1.1 "IntoneMono NFM" 28)))
+)
+
 
 ;; 以下是其他常见的方法，只是为了对比放在这里
 (when nil
