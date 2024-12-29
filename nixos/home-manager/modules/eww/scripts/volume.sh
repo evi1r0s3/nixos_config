@@ -3,11 +3,11 @@
 get_volume() {
     #volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F '/' '{ print $2 }' | sed -e 's/%//')
     # pamixer --get-volume
-    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | awk '{printf "%2.0f\n", 100 * $1}'
+    wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | awk '{printf "%2.0f\n", 100 * $1}' | sed 's/[[:space:]]//g'
 }
 get_mic_volume() {
     # pamixer --get-volume --default-source
-    wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2}' | awk '{printf "%2.0f\n", 100 * $1}'
+    wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print $2}' | awk '{printf "%2.0f\n", 100 * $1}' | sed 's/[[:space:]]//g'
 }
 # 得到是否静音
 get_mute() {

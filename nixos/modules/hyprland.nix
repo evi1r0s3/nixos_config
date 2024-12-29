@@ -4,6 +4,7 @@
     hyprland
     hyprpaper
     xorg.xrdb
+    hyprland-qtutils
     wev
     hypridle
     hyprcursor
