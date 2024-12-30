@@ -25,6 +25,9 @@
     #  url = "github:linyinfeng/nur-packages";
     #  inputs.nixpkgs.follows = "nixpkgs";
     #};
+
+    # wpsFonts 
+    wpsFonts.url = "github:hypercrusher/wpsfonts";
   };
 
   outputs = inputs@{ self, nixpkgs-stable, nixpkgs, home-manager, ... }: 
@@ -97,7 +100,8 @@
             ./modules/wechat-uos.nix
             ./modules/obsidian.nix
             ./modules/singbox.nix
-            ./modules/onlyoffice.nix
+            #./modules/onlyoffice.nix
+            ./modules/wpsoffice-cn.nix
         ];
       };
     };

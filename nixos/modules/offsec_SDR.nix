@@ -1,6 +1,6 @@
-{ pkgs-unstable, ... }:
+{ pkgs-stable, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs-stable; [
     (urh.override { USRPSupport = true; })
     hackrf
     uhd
