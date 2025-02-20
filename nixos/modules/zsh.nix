@@ -1,7 +1,7 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   users.defaultUserShell = pkgs.zsh;
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     lsd
     # zsh-powerlevel10k
     atuin

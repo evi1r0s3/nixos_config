@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   virtualisation.docker.enable = true;
   users.users.evi1_f4iry.extraGroups = [ "docker" ];

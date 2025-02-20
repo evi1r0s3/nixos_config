@@ -1,10 +1,10 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     hyprland
     hyprpaper
     xorg.xrdb
-    hyprland-qtutils
+    #hyprland-qtutils
     wev
     hypridle
     hyprcursor

@@ -1,9 +1,9 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs-unstable.rose-pine-cursor;
+    package = pkgs.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
     size = 24;
   };

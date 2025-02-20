@@ -13,7 +13,7 @@
     "usbcore.autosuspend=-1"
     "video4linux"
     "acpi_rev_override=5"
-    "security=selinux"
+    #"security=selinux"
   ];
   boot.extraModulePackages = with config.boot.kernelPackages; [
     rtl88xxau-aircrack

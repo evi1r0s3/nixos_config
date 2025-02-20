@@ -1,9 +1,9 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   programs.thunar = {
     enable = true;
     # 插件
-    plugins = with pkgs-unstable.xfce; [
+    plugins = with pkgs.xfce; [
       # TODO：archive 功能暂时还有问题
       thunar-archive-plugin
       thunar-volman

@@ -1,7 +1,7 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   services.onedrive.enable = true;
-  environment.systemPackages = with pkgs-unstable; [
+  environment.systemPackages = with pkgs; [
     onedrivegui
   ];
 }

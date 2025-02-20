@@ -1,8 +1,8 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
 #  programs.emacs = {
 #    enable = true;
-#    package = pkgs-unstable.emacs;
+#    package = pkgs.emacs;
 #    extraPackages = epkgs: [
 #      epkgs.dashboard
 #      epkgs.rainbow-delimiters

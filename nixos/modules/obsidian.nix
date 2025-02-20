@@ -1,6 +1,6 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ 
+  environment.systemPackages = with pkgs; [ 
     obsidian
     # 用于导出类的插件
     pandoc

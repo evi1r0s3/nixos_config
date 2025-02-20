@@ -1,7 +1,7 @@
-{ pkgs-unstable, pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs-stable; [ 
+  environment.systemPackages = with pkgs; [ 
     nmap
     rustscan
     socat

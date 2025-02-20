@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ telegram-desktop ];
+  environment.systemPackages = with pkgs; [ telegram-desktop ];
 }

@@ -3,14 +3,17 @@
    
   inputs = {
     # 默认分支设置是unstable
-    nixpkgs.url = "github:Nixos/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:Nixos/nixpkgs/nixos-unstable";
     # 然后将stable的分支设置为一个参数，用来回退个别软件包版本为使用stable版
-    nixpkgs-stable.url = "github:Nixos/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:Nixos/nixpkgs/nixos-24.11";
     
     # homemanager 使用unstable,这样保证在配置一些软件时和pkgs用的分支一致
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # unstable
+      # url = "github:nix-community/home-manager";
+      # stable
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # binary-ninja.url = "github:jchv/nix-binary-ninja";
@@ -18,7 +21,7 @@
     # firefox插件，密避免使用nur的简单方法，
     # 浏览https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json，查找插件名称。
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    firefox-addons.inputs.nixpkgs.follows = "nixpkgs";
+    firefox-addons.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     # wayland下有bug,只能用x11
     #nur-wemeet = {
@@ -30,17 +33,17 @@
     wpsFonts.url = "github:hypercrusher/wpsfonts";
   };
 
-  outputs = inputs@{ self, nixpkgs-stable, nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... }: 
   let
     systemSettings = {
       system = "x86_64-linux";
     };
-    lib = nixpkgs.lib;
+    lib = nixpkgs-stable.lib;
     pkgs-stable = import nixpkgs-stable {
       system = systemSettings.system;
       config.allowUnfree = true;
     };
-    pkgs-unstable = import nixpkgs {
+    pkgs-unstable = import nixpkgs-unstable {
       system = systemSettings.system;
       config.allowUnfree = true;
       #config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
@@ -55,6 +58,7 @@
             inherit pkgs-stable;
             inherit pkgs-unstable;
             inherit inputs;
+            inherit system;
 	      };
           # 模块
 	      modules = [
@@ -68,6 +72,7 @@
               inherit pkgs-stable;
               inherit pkgs-unstable;
               inherit inputs;
+              inherit system;
               };
 	        }
             ./modules/zen_kernel.nix

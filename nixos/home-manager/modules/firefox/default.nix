@@ -1,4 +1,4 @@
-{ pkgs-unstable, inputs, ... }:{
+{ pkgs, inputs, ... }:{
   programs.firefox = {
     enable = true;
     profiles = {
@@ -17,7 +17,7 @@
           #"app.update.silent" = false; # Alert if an update happens
           #"extensions.update.autoUpdateDefault" = false; # Do not auto-update by default
           # 插件
-          extensions = with inputs.firefox-addons.packages.${pkgs-unstable.stdenv.system}; [
+          extensions = with inputs.firefox-addons.packages.${pkgs.stdenv.system}; [
             foxyproxy-standard
             (immersive-translate.overrideAttrs (oldAttrs: { meta.unfree = false; })) # Dirty workaround since nixpkgs.config.allowUnfree does not work with firefox-addons flake
             cookie-quick-manager

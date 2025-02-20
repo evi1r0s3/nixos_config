@@ -1,6 +1,6 @@
-{ pkgs-unstable , inputs , ... }:
+{ pkgs , inputs , ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ 
-    inputs.binary-ninja.packages."${pkgs-unstable.system}".binary-ninja-personal-wayland
+  environment.systemPackages = with pkgs; [ 
+    inputs.binary-ninja.packages."${pkgs.system}".binary-ninja-personal-wayland
   ];
 }

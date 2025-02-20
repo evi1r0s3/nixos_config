@@ -1,4 +1,4 @@
-{ config, pkgs-unstable, inputs, ... }:
+{ config, pkgs-stable, inputs, ... }:
 {
   imports = [
     ./modules/hyprland
@@ -22,9 +22,6 @@
 
   home.username = "evi1_f4iry";
   home.homeDirectory = "/home/evi1_f4iry";
-#  home.packages = with pkgs-unstable;[
-#    obsidian
-#  ];
 
   programs.git = {
     enable = true;

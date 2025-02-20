@@ -1,6 +1,6 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ 
+  environment.systemPackages = with pkgs; [ 
     wget
     git
     curl
@@ -30,5 +30,6 @@
     onlyoffice-bin
     siyuan
     yazi
+    libpcap
   ];
 }

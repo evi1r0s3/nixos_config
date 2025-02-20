@@ -1,4 +1,4 @@
-{ config, lib, pkgs-unstable, ... }:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
@@ -25,7 +25,7 @@ let
                        "--symlink ${x11Fonts} /usr/share/fonts" 
                      ];
 
-    targetPkgs = pkgs: with pkgs-unstable; [
+    targetPkgs = pkgs: with pkgs; [
       onlyofficeUnwrapped
     ];
 

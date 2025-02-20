@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ wechat-uos ];
+  environment.systemPackages = with pkgs; [ wechat-uos ];
 }

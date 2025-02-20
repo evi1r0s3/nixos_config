@@ -1,5 +1,5 @@
-{ pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with pkgs-unstable; [ swaylock-effects ];
+  environment.systemPackages = with pkgs; [ swaylock-effects ];
   security.pam.services.swaylock = {};
 }
