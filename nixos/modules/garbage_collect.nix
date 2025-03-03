@@ -6,7 +6,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 1w";
+    options = "--delete-older-than 14d";
   };
   # 优化存储
   # 如果设置为 true，Nix 会自动检测存储中具有相同内容的文件，并将它们替换为单个副本的硬链接。

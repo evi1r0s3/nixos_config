@@ -30,6 +30,5 @@
     onlyoffice-bin
     siyuan
     yazi
-    libpcap
   ];
 }
