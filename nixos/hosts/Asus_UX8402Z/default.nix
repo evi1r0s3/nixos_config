@@ -19,7 +19,7 @@
       device = "nodev";
       useOSProber = false;
       efiSupport = true;
-      #font = "${pkgs.nerd-fonts}/share/fonts/truetype/NerdFonts/IntoneMonoNerdFont-Medium.ttf";
+      font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/IntoneMonoNerdFont-Medium.ttf";
       fontSize = 24;
     };
   };
