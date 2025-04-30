@@ -25,7 +25,7 @@
     cve-bin-tool
     inetutils #telnent
     netcat #nc
-    ghidra
+    #ghidra
     thc-hydra
     seclists
   ];

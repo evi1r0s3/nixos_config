@@ -9,7 +9,10 @@
       # 24.11
        (nerdfonts.override { fonts = [ "IntelOneMono" "JetBrainsMono" "ComicShannsMono"];})
       ###
+      # 25.05
+      # vista-fonts-chs
       vistafonts-chs
+      noto-fonts-cjk-sans
       unifont
       maple-mono-SC-NF
       # emojione #

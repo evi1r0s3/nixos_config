@@ -5,6 +5,8 @@ alias ls='lsd'
 alias tree='lsd --tree'
 alias se='sudo -E'
 
+bindkey -e
+
 eval "$(starship init zsh)"
 # atuin init
 eval "$(atuin init zsh --disable-ctrl-r)"

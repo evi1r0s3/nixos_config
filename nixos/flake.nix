@@ -42,11 +42,12 @@
     pkgs-stable = import nixpkgs-stable {
       system = systemSettings.system;
       config.allowUnfree = true;
+      config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
     };
     pkgs-unstable = import nixpkgs-unstable {
       system = systemSettings.system;
       config.allowUnfree = true;
-      #config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
+      config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
     };
   in {
       nixosConfigurations = {

@@ -281,9 +281,10 @@ disabled = false
 ## color is set to dark orange, to get ones attention for e. g. R&R time, based on the configured time_range ;)
 style = "bg:color_time fg:color_time_text"
 # use_12hr = true
-time_format = "%F %a [%H:%M:%S]"
+#time_format = "%F %a [%H:%M:%S]"
+time_format = "[%H:%M:%S]"
 time_range = "-"
-format = "[ 󰚀 $time ]($style) " #  = nf-oct-clock
+format = "[ 󰚀 $time ]($style)" #  = nf-oct-clock
 
 [custom.root]
 # disabled = true
@@ -378,7 +379,7 @@ format = '[$symbol:$allowed$loaded]($style)'
 
 ###  Cloud provider section
 [aws]
-# disabled = true
+disabled = true
 symbol = "󰸏 " # nf-md-aws
 # symbol = " " # nf-weather-cloud
 style = "bg:color_cloud fg:color_cloud_text"
@@ -391,14 +392,14 @@ format = '[$symbol$profile(\($region\))(\[$duration\])]($style)'
 [aws.profile_aliases]
 
 [azure]
-# disabled = false
+disabled = true
 symbol = " " # nf-cod-azure
 # symbol = "󰠅 " # nf-md-microsoft_azure
 style = "bg:color_cloud fg:color_cloud_text"
 format = '[$symbol($subscription)]($style)'
 
 [gcloud]
-# disabled = true
+disabled = true
 symbol = "󱇶 " # nf-md-google_cloud
 style = "bg:color_cloud fg:color_cloud_text"
 format = '[$symbol$account(@$domain)(\($region\))]($style)'
@@ -411,7 +412,7 @@ format = '[$symbol$account(@$domain)(\($region\))]($style)'
 [gcloud.project_aliases]
 
 [openstack]
-# disabled = true
+disabled = true
 symbol = " " # nf-weather-cloud
 style = "bg:color_cloud fg:color_cloud_text"
 format = '[$symbol$cloud(\($project\))]($style)'
