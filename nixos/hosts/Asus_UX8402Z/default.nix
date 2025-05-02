@@ -3,7 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 # add 'inputs' arg hare to import flakes
-{ config, lib, pkgs, pkgs-stable, pkgs-unstable, ... }:
+{ pkgs-default, ... }:
 
 {
   imports =
@@ -19,7 +19,7 @@
       device = "nodev";
       useOSProber = false;
       efiSupport = true;
-      font = "${pkgs.nerdfonts}/share/fonts/truetype/NerdFonts/IntoneMonoNerdFont-Medium.ttf";
+      font = "${pkgs-default.nerdfonts}/share/fonts/truetype/NerdFonts/IntoneMonoNerdFont-Medium.ttf";
       fontSize = 24;
     };
   };

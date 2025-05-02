@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 {
   # 限制启动项目数量
   boot.loader.systemd-boot.configurationLimit = 10;

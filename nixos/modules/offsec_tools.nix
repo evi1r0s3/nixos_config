@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs-default; [ 
     nmap
     rustscan
     socat

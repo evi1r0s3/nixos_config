@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [ 
+  environment.systemPackages = with pkgs-default; [ 
     obsidian
     # 用于导出类的插件
     pandoc

@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
   fonts = {
-    packages = with pkgs; [
+    packages = with pkgs-default; [
       # After 25.05 必须使用nerd-fonts.下面的字体
       # nerd-fonts.intone-mono
       # nerd-fonts.comic-shanns-mono
@@ -11,7 +11,8 @@
       ###
       # 25.05
       # vista-fonts-chs
-      vistafonts-chs
+      # vistafonts-chs
+      ubuntu-sans-mono
       noto-fonts-cjk-sans
       unifont
       maple-mono-SC-NF

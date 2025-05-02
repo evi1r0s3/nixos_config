@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-default; [
     hyprland
     hyprpaper
     xorg.xrdb
@@ -27,6 +27,5 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
-    # enableNvidiaPatches = true; # unstable nixpkgs dont need this
   };
 }

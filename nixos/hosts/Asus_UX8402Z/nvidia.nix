@@ -1,11 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, ... }:
 {
-
   # Enable OpenGL
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # Load nvidia driver for Xorg and Wayland
@@ -40,7 +38,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.latest;
 
     # Enabling PRIME sync introduces better performance and greatly reduces screen tearing,
     # at the expense of higher power consumption since the Nvidia GPU will not go to sleep completely unless called for,
@@ -62,5 +60,5 @@
 
   # intel 这个试过如果启用的话是会无法正常进入图形界面 
   # boot.kernelParams = [ "module_blacklist=i915" ];
-  boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" "module_blacklist=i915" ];
+  # boot.kernelParams = [ "nvidia_drm.fbdev=1" "nvidia-drm.modeset=1" "module_blacklist=i915" ];
 }

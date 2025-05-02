@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [ wechat-uos ];
+  environment.systemPackages = with pkgs-default; [ wechat-uos ];
 }

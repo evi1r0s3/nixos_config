@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
 #    extraConfig = lib.fileContents ./init.vim;
-    plugins = with pkgs.vimPlugins;[
+    plugins = with pkgs-default.vimPlugins;[
       # packer 切换到lazy了
       # 使用lazy之后不需要再使用nix预装插件了，因为无论如何lazy首次运行都会安装插件
       lazy-nvim

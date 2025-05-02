@@ -1,23 +1,23 @@
-{ config, pkgs-stable, inputs, ... }:
+{ ... }:
 {
   imports = [
-    ./modules/hyprland
-    ./modules/gui
-    ./modules/kitty
-    ./modules/eww
-    ./modules/ranger
-    ./modules/Pictures
-    ./modules/swaylock
-    ./modules/fcitx5
-    ./modules/cursor
-    ./modules/helix
-    ./modules/emacs
-    ./modules/neovim
-    ./modules/develop
-    ./modules/foot
-    ./modules/shell
-    ./modules/virt_manager
-    ./modules/firefox
+    ./hyprland
+    ./gui
+    ./kitty
+    ./eww
+    ./ranger
+    ./Pictures
+    ./swaylock
+    ./fcitx5
+    ./cursor
+    ./helix
+    ./emacs
+    ./neovim
+    ./develop
+    ./foot
+    ./shell
+    ./virt_manager
+    ./firefox
   ];
 
   home.username = "evi1_f4iry";

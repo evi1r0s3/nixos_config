@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.rose-pine-cursor;
+    package = pkgs-default.rose-pine-cursor;
     name = "BreezeX-RosePine-Linux";
     size = 24;
   };

@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [ v2raya ];
+  environment.systemPackages = with pkgs-default; [ v2raya ];
 
   services.v2raya.enable = true;
   networking.firewall = {

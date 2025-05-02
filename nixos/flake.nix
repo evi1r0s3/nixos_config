@@ -22,15 +22,6 @@
     # 浏览https://gitlab.com/rycee/nur-expressions/-/blob/master/pkgs/firefox-addons/addons.json，查找插件名称。
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
     firefox-addons.inputs.nixpkgs.follows = "nixpkgs-stable";
-
-    # wayland下有bug,只能用x11
-    #nur-wemeet = {
-    #  url = "github:linyinfeng/nur-packages";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    # wpsFonts 
-    wpsFonts.url = "github:hypercrusher/wpsfonts";
   };
 
   outputs = inputs@{ self, nixpkgs-stable, nixpkgs-unstable, home-manager, ... }: 
@@ -49,6 +40,7 @@
       config.allowUnfree = true;
       config.permittedInsecurePackages = [ "openssl-1.1.1w" ];
     };
+    pkgs-default = pkgs-stable;
   in {
       nixosConfigurations = {
         ZenNix0s = lib.nixosSystem rec {
@@ -56,6 +48,7 @@
           system = systemSettings.system;
           # 参数传递
 	      specialArgs = {
+            inherit pkgs-default;
             inherit pkgs-stable;
             inherit pkgs-unstable;
             inherit inputs;
@@ -68,8 +61,8 @@
 	          home-manager.useGlobalPkgs = true;
 	          home-manager.useUserPackages = true;
 	          home-manager.users.evi1_f4iry = import ./home-manager/evi1_f4iry.nix;
-	          home-manager.users.root = import ./home-manager/root.nix;
 	          home-manager.extraSpecialArgs = {
+              inherit pkgs-default;
               inherit pkgs-stable;
               inherit pkgs-unstable;
               inherit inputs;
@@ -106,8 +99,9 @@
             ./modules/wechat-uos.nix
             ./modules/obsidian.nix
             ./modules/singbox.nix
+            ./modules/flatpak.nix
             #./modules/onlyoffice.nix
-            ./modules/wpsoffice-cn.nix
+            #./modules/wpsoffice-cn.nix
         ];
       };
     };

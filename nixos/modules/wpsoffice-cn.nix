@@ -1,10 +1,10 @@
 {
-  pkgs, inputs, system, ...
+  pkgs-default, inputs, system, ...
 }:
 {
-  environment.systemPackages = with pkgs; [ wpsoffice-cn ];
+  environment.systemPackages = with pkgs-default; [ wpsoffice-cn ];
   nixpkgs.config.joypixels.acceptLicense = true;
-  fonts.packages = with pkgs; [
+  fonts.packages = [
     inputs.wpsFonts.packages.${system}.default
   ];
 }

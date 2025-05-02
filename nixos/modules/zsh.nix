@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  users.defaultUserShell = pkgs.zsh;
-  environment.systemPackages = with pkgs; [
+  users.defaultUserShell = pkgs-default.zsh;
+  environment.systemPackages = with pkgs-default; [
     lsd
-    # zsh-powerlevel10k
     atuin
     starship
   ];
@@ -13,13 +12,5 @@
     autosuggestions.enable = true;
     syntaxHighlighting.enable = true;
     histSize = 10000;
-    # promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    # ohMyZsh = {
-    #   enable = true;
-    #   plugins = [
-    #     "git"
-    #     "direnv"
-    #   ];
-    # };
   };
 }

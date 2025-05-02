@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [ ranger ];
+  environment.systemPackages = with pkgs-default; [ ranger ];
 }

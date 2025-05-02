@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }: let
-  tuigreet = "${pkgs.greetd.tuigreet}/bin/tuigreet";
-  hyprland-session = "${pkgs.hyprland}/share/wayland-sessions";
+{ pkgs-default, lib, ... }: let
+  tuigreet = "${pkgs-default.greetd.tuigreet}/bin/tuigreet";
+  hyprland-session = "${pkgs-default.hyprland}/share/wayland-sessions";
   tuigreetOptions = [
     "--remember"
     "--time"
@@ -22,7 +22,7 @@ in {
     };
   };
   
-  environment.systemPackages = with pkgs; [ greetd.tuigreet ];
+  environment.systemPackages = with pkgs-default; [ greetd.tuigreet ];
 
   systemd.services.greetd.serviceConfig = {
     Type = "idle";

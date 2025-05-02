@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [ telegram-desktop ];
+  environment.systemPackages = with pkgs-default; [ telegram-desktop ];
 }

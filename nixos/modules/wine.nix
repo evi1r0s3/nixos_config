@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs-default, ... }:
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-default; [
     # support both 32- and 64-bit applications
     wineWowPackages.stable
     
